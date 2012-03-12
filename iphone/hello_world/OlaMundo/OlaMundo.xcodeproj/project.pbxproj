@@ -1,0 +1,281 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93CBFB37150EB4270046B7C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CBFB36150EB4270046B7C2 /* UIKit.framework */; };
+		93CBFB39150EB4270046B7C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CBFB38150EB4270046B7C2 /* Foundation.framework */; };
+		93CBFB3B150EB4270046B7C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CBFB3A150EB4270046B7C2 /* CoreGraphics.framework */; };
+		93CBFB41150EB4270046B7C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93CBFB3F150EB4270046B7C2 /* InfoPlist.strings */; };
+		93CBFB43150EB4270046B7C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CBFB42150EB4270046B7C2 /* main.m */; };
+		93CBFB47150EB4270046B7C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CBFB46150EB4270046B7C2 /* AppDelegate.m */; };
+		93CBFB4A150EB4270046B7C2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CBFB49150EB4270046B7C2 /* ViewController.m */; };
+		93CBFB4D150EB4270046B7C2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CBFB4B150EB4270046B7C2 /* ViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		93CBFB32150EB4270046B7C2 /* OlaMundo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OlaMundo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93CBFB36150EB4270046B7C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		93CBFB38150EB4270046B7C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		93CBFB3A150EB4270046B7C2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		93CBFB3E150EB4270046B7C2 /* OlaMundo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OlaMundo-Info.plist"; sourceTree = "<group>"; };
+		93CBFB40150EB4270046B7C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		93CBFB42150EB4270046B7C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		93CBFB44150EB4270046B7C2 /* OlaMundo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OlaMundo-Prefix.pch"; sourceTree = "<group>"; };
+		93CBFB45150EB4270046B7C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		93CBFB46150EB4270046B7C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		93CBFB48150EB4270046B7C2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		93CBFB49150EB4270046B7C2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		93CBFB4C150EB4270046B7C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93CBFB2F150EB4270046B7C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93CBFB37150EB4270046B7C2 /* UIKit.framework in Frameworks */,
+				93CBFB39150EB4270046B7C2 /* Foundation.framework in Frameworks */,
+				93CBFB3B150EB4270046B7C2 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		93CBFB27150EB4270046B7C2 = {
+			isa = PBXGroup;
+			children = (
+				93CBFB3C150EB4270046B7C2 /* OlaMundo */,
+				93CBFB35150EB4270046B7C2 /* Frameworks */,
+				93CBFB33150EB4270046B7C2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		93CBFB33150EB4270046B7C2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93CBFB32150EB4270046B7C2 /* OlaMundo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93CBFB35150EB4270046B7C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93CBFB36150EB4270046B7C2 /* UIKit.framework */,
+				93CBFB38150EB4270046B7C2 /* Foundation.framework */,
+				93CBFB3A150EB4270046B7C2 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		93CBFB3C150EB4270046B7C2 /* OlaMundo */ = {
+			isa = PBXGroup;
+			children = (
+				93CBFB45150EB4270046B7C2 /* AppDelegate.h */,
+				93CBFB46150EB4270046B7C2 /* AppDelegate.m */,
+				93CBFB48150EB4270046B7C2 /* ViewController.h */,
+				93CBFB49150EB4270046B7C2 /* ViewController.m */,
+				93CBFB4B150EB4270046B7C2 /* ViewController.xib */,
+				93CBFB3D150EB4270046B7C2 /* Supporting Files */,
+			);
+			path = OlaMundo;
+			sourceTree = "<group>";
+		};
+		93CBFB3D150EB4270046B7C2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				93CBFB3E150EB4270046B7C2 /* OlaMundo-Info.plist */,
+				93CBFB3F150EB4270046B7C2 /* InfoPlist.strings */,
+				93CBFB42150EB4270046B7C2 /* main.m */,
+				93CBFB44150EB4270046B7C2 /* OlaMundo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		93CBFB31150EB4270046B7C2 /* OlaMundo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93CBFB50150EB4270046B7C2 /* Build configuration list for PBXNativeTarget "OlaMundo" */;
+			buildPhases = (
+				93CBFB2E150EB4270046B7C2 /* Sources */,
+				93CBFB2F150EB4270046B7C2 /* Frameworks */,
+				93CBFB30150EB4270046B7C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OlaMundo;
+			productName = OlaMundo;
+			productReference = 93CBFB32150EB4270046B7C2 /* OlaMundo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93CBFB29150EB4270046B7C2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 93CBFB2C150EB4270046B7C2 /* Build configuration list for PBXProject "OlaMundo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 93CBFB27150EB4270046B7C2;
+			productRefGroup = 93CBFB33150EB4270046B7C2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93CBFB31150EB4270046B7C2 /* OlaMundo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93CBFB30150EB4270046B7C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93CBFB41150EB4270046B7C2 /* InfoPlist.strings in Resources */,
+				93CBFB4D150EB4270046B7C2 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93CBFB2E150EB4270046B7C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93CBFB43150EB4270046B7C2 /* main.m in Sources */,
+				93CBFB47150EB4270046B7C2 /* AppDelegate.m in Sources */,
+				93CBFB4A150EB4270046B7C2 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		93CBFB3F150EB4270046B7C2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93CBFB40150EB4270046B7C2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		93CBFB4B150EB4270046B7C2 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93CBFB4C150EB4270046B7C2 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		93CBFB4E150EB4270046B7C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		93CBFB4F150EB4270046B7C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		93CBFB51150EB4270046B7C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OlaMundo/OlaMundo-Prefix.pch";
+				INFOPLIST_FILE = "OlaMundo/OlaMundo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		93CBFB52150EB4270046B7C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OlaMundo/OlaMundo-Prefix.pch";
+				INFOPLIST_FILE = "OlaMundo/OlaMundo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93CBFB2C150EB4270046B7C2 /* Build configuration list for PBXProject "OlaMundo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93CBFB4E150EB4270046B7C2 /* Debug */,
+				93CBFB4F150EB4270046B7C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93CBFB50150EB4270046B7C2 /* Build configuration list for PBXNativeTarget "OlaMundo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93CBFB51150EB4270046B7C2 /* Debug */,
+				93CBFB52150EB4270046B7C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 93CBFB29150EB4270046B7C2 /* Project object */;
+}
