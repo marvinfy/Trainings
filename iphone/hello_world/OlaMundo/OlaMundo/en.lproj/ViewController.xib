@@ -37,7 +37,7 @@
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
-					<object class="IBUITextField" id="334576925">
+					<object class="IBUITextField" id="578673062">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 132}, {280, 31}}</string>
@@ -52,7 +52,7 @@
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MAA</bytes>
-							<object class="NSColorSpace" key="NSCustomColorSpace" id="113447334">
+							<object class="NSColorSpace" key="NSCustomColorSpace" id="158932173">
 								<int key="NSID">2</int>
 							</object>
 						</object>
@@ -71,7 +71,7 @@
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
-					<object class="IBUILabel" id="26874972">
+					<object class="IBUILabel" id="399409963">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 171}, {280, 21}}</string>
@@ -100,10 +100,10 @@
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
-					<object class="IBUIButton" id="632315836">
+					<object class="IBUIButton" id="290336862">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{106, 87}, {108, 37}}</string>
+						<string key="NSFrame">{{20, 87}, {108, 37}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -111,7 +111,7 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">Clique Aqui</string>
+						<string key="IBUINormalTitle">Texto</string>
 						<object class="NSColor" key="IBUIHighlightedTitleColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -142,7 +142,7 @@
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MC43NQA</bytes>
-					<reference key="NSCustomColorSpace" ref="113447334"/>
+					<reference key="NSCustomColorSpace" ref="158932173"/>
 				</object>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
@@ -163,7 +163,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">meuCampoTexto</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="334576925"/>
+						<reference key="destination" ref="578673062"/>
 					</object>
 					<int key="connectionID">11</int>
 				</object>
@@ -171,14 +171,14 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">meuLabel</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="26874972"/>
+						<reference key="destination" ref="399409963"/>
 					</object>
 					<int key="connectionID">12</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">atualizaLabel:</string>
-						<reference key="source" ref="632315836"/>
+						<reference key="source" ref="290336862"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -208,25 +208,25 @@
 						<int key="objectID">6</int>
 						<reference key="object" ref="774585933"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="334576925"/>
-							<reference ref="26874972"/>
-							<reference ref="632315836"/>
+							<reference ref="578673062"/>
+							<reference ref="399409963"/>
+							<reference ref="290336862"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">8</int>
-						<reference key="object" ref="334576925"/>
+						<reference key="object" ref="578673062"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">9</int>
-						<reference key="object" ref="26874972"/>
+						<reference key="object" ref="399409963"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">10</int>
-						<reference key="object" ref="632315836"/>
+						<reference key="object" ref="290336862"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 				</array>
@@ -245,7 +245,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">15</int>
+			<int key="maxID">21</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -266,6 +266,7 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="meuCampoTexto">UITextField</string>
 						<string key="meuLabel">UILabel</string>
+						<string key="minhaData">UIDatePicker</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="meuCampoTexto">
@@ -275,6 +276,10 @@
 						<object class="IBToOneOutletInfo" key="meuLabel">
 							<string key="name">meuLabel</string>
 							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="minhaData">
+							<string key="name">minhaData</string>
+							<string key="candidateClassName">UIDatePicker</string>
 						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

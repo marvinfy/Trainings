@@ -12,6 +12,7 @@
 
 @property(nonatomic, weak) IBOutlet UILabel* meuLabel;
 @property(nonatomic, weak) IBOutlet UITextField* meuCampoTexto;
+@property(nonatomic, weak) IBOutlet UIDatePicker *minhaData;
 
 - (IBAction)atualizaLabel:(id)sender;
 

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @implementation ViewController
+@synthesize minhaData;
 
 @synthesize meuLabel, meuCampoTexto;
 
@@ -16,7 +17,6 @@
 {
     [meuLabel setText:[meuCampoTexto text]];
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -34,6 +34,7 @@
 
 - (void)viewDidUnload
 {
+    [self setMinhaData:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
