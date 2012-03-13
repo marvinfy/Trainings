@@ -1,0 +1,273 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93CBFBE0150EDDB80046B7C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CBFBDF150EDDB80046B7C2 /* UIKit.framework */; };
+		93CBFBE2150EDDB80046B7C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CBFBE1150EDDB80046B7C2 /* Foundation.framework */; };
+		93CBFBE4150EDDB80046B7C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CBFBE3150EDDB80046B7C2 /* CoreGraphics.framework */; };
+		93CBFBEA150EDDB80046B7C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93CBFBE8150EDDB80046B7C2 /* InfoPlist.strings */; };
+		93CBFBEC150EDDB80046B7C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CBFBEB150EDDB80046B7C2 /* main.m */; };
+		93CBFBF0150EDDB80046B7C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CBFBEF150EDDB80046B7C2 /* AppDelegate.m */; };
+		93CBFBF9150EDDE90046B7C2 /* ListagemContatosController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CBFBF7150EDDE90046B7C2 /* ListagemContatosController.m */; };
+		93CBFBFA150EDDE90046B7C2 /* ListagemContatosController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CBFBF8150EDDE90046B7C2 /* ListagemContatosController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		93CBFBDB150EDDB80046B7C2 /* ContatosIP67.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContatosIP67.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93CBFBDF150EDDB80046B7C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		93CBFBE1150EDDB80046B7C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		93CBFBE3150EDDB80046B7C2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		93CBFBE7150EDDB80046B7C2 /* ContatosIP67-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ContatosIP67-Info.plist"; sourceTree = "<group>"; };
+		93CBFBE9150EDDB80046B7C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		93CBFBEB150EDDB80046B7C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		93CBFBED150EDDB80046B7C2 /* ContatosIP67-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContatosIP67-Prefix.pch"; sourceTree = "<group>"; };
+		93CBFBEE150EDDB80046B7C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		93CBFBEF150EDDB80046B7C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		93CBFBF6150EDDE90046B7C2 /* ListagemContatosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListagemContatosController.h; sourceTree = "<group>"; };
+		93CBFBF7150EDDE90046B7C2 /* ListagemContatosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListagemContatosController.m; sourceTree = "<group>"; };
+		93CBFBF8150EDDE90046B7C2 /* ListagemContatosController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListagemContatosController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93CBFBD8150EDDB80046B7C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93CBFBE0150EDDB80046B7C2 /* UIKit.framework in Frameworks */,
+				93CBFBE2150EDDB80046B7C2 /* Foundation.framework in Frameworks */,
+				93CBFBE4150EDDB80046B7C2 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		93CBFBD0150EDDB80046B7C2 = {
+			isa = PBXGroup;
+			children = (
+				93CBFBF6150EDDE90046B7C2 /* ListagemContatosController.h */,
+				93CBFBF7150EDDE90046B7C2 /* ListagemContatosController.m */,
+				93CBFBF8150EDDE90046B7C2 /* ListagemContatosController.xib */,
+				93CBFBE5150EDDB80046B7C2 /* ContatosIP67 */,
+				93CBFBDE150EDDB80046B7C2 /* Frameworks */,
+				93CBFBDC150EDDB80046B7C2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		93CBFBDC150EDDB80046B7C2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93CBFBDB150EDDB80046B7C2 /* ContatosIP67.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93CBFBDE150EDDB80046B7C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93CBFBDF150EDDB80046B7C2 /* UIKit.framework */,
+				93CBFBE1150EDDB80046B7C2 /* Foundation.framework */,
+				93CBFBE3150EDDB80046B7C2 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		93CBFBE5150EDDB80046B7C2 /* ContatosIP67 */ = {
+			isa = PBXGroup;
+			children = (
+				93CBFBEE150EDDB80046B7C2 /* AppDelegate.h */,
+				93CBFBEF150EDDB80046B7C2 /* AppDelegate.m */,
+				93CBFBE6150EDDB80046B7C2 /* Supporting Files */,
+			);
+			path = ContatosIP67;
+			sourceTree = "<group>";
+		};
+		93CBFBE6150EDDB80046B7C2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				93CBFBE7150EDDB80046B7C2 /* ContatosIP67-Info.plist */,
+				93CBFBE8150EDDB80046B7C2 /* InfoPlist.strings */,
+				93CBFBEB150EDDB80046B7C2 /* main.m */,
+				93CBFBED150EDDB80046B7C2 /* ContatosIP67-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		93CBFBDA150EDDB80046B7C2 /* ContatosIP67 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93CBFBF3150EDDB80046B7C2 /* Build configuration list for PBXNativeTarget "ContatosIP67" */;
+			buildPhases = (
+				93CBFBD7150EDDB80046B7C2 /* Sources */,
+				93CBFBD8150EDDB80046B7C2 /* Frameworks */,
+				93CBFBD9150EDDB80046B7C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ContatosIP67;
+			productName = ContatosIP67;
+			productReference = 93CBFBDB150EDDB80046B7C2 /* ContatosIP67.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93CBFBD2150EDDB80046B7C2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 93CBFBD5150EDDB80046B7C2 /* Build configuration list for PBXProject "ContatosIP67" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 93CBFBD0150EDDB80046B7C2;
+			productRefGroup = 93CBFBDC150EDDB80046B7C2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93CBFBDA150EDDB80046B7C2 /* ContatosIP67 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93CBFBD9150EDDB80046B7C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93CBFBEA150EDDB80046B7C2 /* InfoPlist.strings in Resources */,
+				93CBFBFA150EDDE90046B7C2 /* ListagemContatosController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93CBFBD7150EDDB80046B7C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93CBFBEC150EDDB80046B7C2 /* main.m in Sources */,
+				93CBFBF0150EDDB80046B7C2 /* AppDelegate.m in Sources */,
+				93CBFBF9150EDDE90046B7C2 /* ListagemContatosController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		93CBFBE8150EDDB80046B7C2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93CBFBE9150EDDB80046B7C2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		93CBFBF1150EDDB80046B7C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		93CBFBF2150EDDB80046B7C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		93CBFBF4150EDDB80046B7C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ContatosIP67/ContatosIP67-Prefix.pch";
+				INFOPLIST_FILE = "ContatosIP67/ContatosIP67-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		93CBFBF5150EDDB80046B7C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ContatosIP67/ContatosIP67-Prefix.pch";
+				INFOPLIST_FILE = "ContatosIP67/ContatosIP67-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93CBFBD5150EDDB80046B7C2 /* Build configuration list for PBXProject "ContatosIP67" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93CBFBF1150EDDB80046B7C2 /* Debug */,
+				93CBFBF2150EDDB80046B7C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93CBFBF3150EDDB80046B7C2 /* Build configuration list for PBXNativeTarget "ContatosIP67" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93CBFBF4150EDDB80046B7C2 /* Debug */,
+				93CBFBF5150EDDB80046B7C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 93CBFBD2150EDDB80046B7C2 /* Project object */;
+}
