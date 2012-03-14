@@ -12,4 +12,7 @@
 
 @property (strong, nonatomic) NSMutableArray *contatos;
 
+
+-(void) mostraFormContato;
+
 @end
