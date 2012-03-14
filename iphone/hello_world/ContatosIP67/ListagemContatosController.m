@@ -8,7 +8,7 @@
 
 #import "ListagemContatosController.h"
 #import "Contato.h"
-
+#import "FormularioController.h"
 
 
 @implementation ListagemContatosController
@@ -65,7 +65,11 @@
 
 -(void) mostraFormContato
 {
-    ListagemContatosController *formularioContatos = [[ListagemContatosController alloc] initWithNibName:@"FormularioContatoController" bundle:[NSBundle mainBundle]];
+    FormularioController *formularioContatos = [[FormularioController alloc] initWithNibName:@"FormularioController" bundle:[NSBundle mainBundle]];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:formularioContatos];
+    [self presentModalViewController:navigationController animated:YES];
+
+
 }
 
 - (void)viewDidUnload

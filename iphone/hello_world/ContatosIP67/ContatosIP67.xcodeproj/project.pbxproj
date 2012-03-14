@@ -17,6 +17,8 @@
 		93CBFBF9150EDDE90046B7C2 /* ListagemContatosController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CBFBF7150EDDE90046B7C2 /* ListagemContatosController.m */; };
 		93CBFBFA150EDDE90046B7C2 /* ListagemContatosController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CBFBF8150EDDE90046B7C2 /* ListagemContatosController.xib */; };
 		93E459EF15100E9E00808553 /* contatos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93E459EE15100E9E00808553 /* contatos.plist */; };
+		93F1ACF41511537300498469 /* FormularioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F1ACF21511537300498469 /* FormularioController.m */; };
+		93F1ACF51511537300498469 /* FormularioController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F1ACF31511537300498469 /* FormularioController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,9 @@
 		93CBFBF7150EDDE90046B7C2 /* ListagemContatosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListagemContatosController.m; sourceTree = "<group>"; };
 		93CBFBF8150EDDE90046B7C2 /* ListagemContatosController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListagemContatosController.xib; sourceTree = "<group>"; };
 		93E459EE15100E9E00808553 /* contatos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = contatos.plist; path = ../../../../../Desktop/contatos.plist; sourceTree = "<group>"; };
+		93F1ACF11511537300498469 /* FormularioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormularioController.h; sourceTree = "<group>"; };
+		93F1ACF21511537300498469 /* FormularioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormularioController.m; sourceTree = "<group>"; };
+		93F1ACF31511537300498469 /* FormularioController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormularioController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,9 @@
 				93E459EE15100E9E00808553 /* contatos.plist */,
 				93CBFBF6150EDDE90046B7C2 /* ListagemContatosController.h */,
 				93CBFBF7150EDDE90046B7C2 /* ListagemContatosController.m */,
+				93F1ACF11511537300498469 /* FormularioController.h */,
+				93F1ACF21511537300498469 /* FormularioController.m */,
+				93F1ACF31511537300498469 /* FormularioController.xib */,
 				93C21EB915101B8E00079F06 /* Contato.h */,
 				93C21EBA15101B8E00079F06 /* Contato.m */,
 				93CBFBF8150EDDE90046B7C2 /* ListagemContatosController.xib */,
@@ -159,6 +167,7 @@
 				93CBFBEA150EDDB80046B7C2 /* InfoPlist.strings in Resources */,
 				93CBFBFA150EDDE90046B7C2 /* ListagemContatosController.xib in Resources */,
 				93E459EF15100E9E00808553 /* contatos.plist in Resources */,
+				93F1ACF51511537300498469 /* FormularioController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +182,7 @@
 				93CBFBF0150EDDB80046B7C2 /* AppDelegate.m in Sources */,
 				93CBFBF9150EDDE90046B7C2 /* ListagemContatosController.m in Sources */,
 				93C21EBB15101B8E00079F06 /* Contato.m in Sources */,
+				93F1ACF41511537300498469 /* FormularioController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
