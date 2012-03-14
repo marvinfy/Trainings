@@ -35,8 +35,12 @@
 {
     [super viewDidLoad];
     
+    /*
+    
     contatos = [[NSMutableArray alloc] initWithObjects:@"MV", @"Marcus Vinicius", @"Teste", nil];
 
+     */
+     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -82,7 +86,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [contatos count];
 }

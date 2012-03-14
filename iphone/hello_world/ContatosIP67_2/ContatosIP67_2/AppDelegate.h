@@ -1,8 +1,8 @@
 //
 //  AppDelegate.h
-//  ContatosIP67
+//  ContatosIP67_2
 //
-//  Created by ios2534 on 12/03/12.
+//  Created by ios2534 on 13/03/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -11,8 +11,5 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) UINavigationController *navigationController;
-
--(void) carregaDoPlist;
 
 @end

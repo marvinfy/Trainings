@@ -1,54 +1,22 @@
 //
 //  AppDelegate.m
-//  ContatosIP67
+//  ContatosIP67_2
 //
-//  Created by ios2534 on 12/03/12.
+//  Created by ios2534 on 13/03/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "ListagemContatosController.h"
-
-@interface AppDelegate () {
-    NSMutableArray *contatos;
-}
-@end
 
 @implementation AppDelegate
 
 @synthesize window = _window;
-@synthesize navigationController = _navigationController;
-
-
--(void) carregaDoPlist {
-    NSString *caminho = [[NSBundle mainBundle] pathForResource:@"contatos" ofType:@"plist"];
-    
-    NSMutableDictionary *arrayDeContatos = [[NSMutableDictionary alloc] initWithContentsOfFile:caminho];
-    contatos = [[NSMutableArray alloc] init];
-    
-    for (NSString *key in arrayDeContatos) {
-        NSDictionary *d = [arrayDeContatos objectForKey:key];
-        
-        [contatos addObject:[d objectForKey:@"nome"]];
-    
-    }
-
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    
-    [self carregaDoPlist];
-    
-    ListagemContatosController *listagemContatos = [[ListagemContatosController alloc] initWithNibName:@"ListagemContatosController" bundle:nil];
-    listagemContatos.contatos = contatos;
-    
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:listagemContatos];
-    self.window.rootViewController = self.navigationController;
-    
     [self.window makeKeyAndVisible];
     return YES;
 }

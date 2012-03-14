@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93C21EBB15101B8E00079F06 /* Contato.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C21EBA15101B8E00079F06 /* Contato.m */; };
 		93CBFBE0150EDDB80046B7C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CBFBDF150EDDB80046B7C2 /* UIKit.framework */; };
 		93CBFBE2150EDDB80046B7C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CBFBE1150EDDB80046B7C2 /* Foundation.framework */; };
 		93CBFBE4150EDDB80046B7C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CBFBE3150EDDB80046B7C2 /* CoreGraphics.framework */; };
@@ -15,9 +16,12 @@
 		93CBFBF0150EDDB80046B7C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CBFBEF150EDDB80046B7C2 /* AppDelegate.m */; };
 		93CBFBF9150EDDE90046B7C2 /* ListagemContatosController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CBFBF7150EDDE90046B7C2 /* ListagemContatosController.m */; };
 		93CBFBFA150EDDE90046B7C2 /* ListagemContatosController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CBFBF8150EDDE90046B7C2 /* ListagemContatosController.xib */; };
+		93E459EF15100E9E00808553 /* contatos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93E459EE15100E9E00808553 /* contatos.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93C21EB915101B8E00079F06 /* Contato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contato.h; sourceTree = "<group>"; };
+		93C21EBA15101B8E00079F06 /* Contato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contato.m; sourceTree = "<group>"; };
 		93CBFBDB150EDDB80046B7C2 /* ContatosIP67.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContatosIP67.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93CBFBDF150EDDB80046B7C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		93CBFBE1150EDDB80046B7C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -31,6 +35,7 @@
 		93CBFBF6150EDDE90046B7C2 /* ListagemContatosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListagemContatosController.h; sourceTree = "<group>"; };
 		93CBFBF7150EDDE90046B7C2 /* ListagemContatosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListagemContatosController.m; sourceTree = "<group>"; };
 		93CBFBF8150EDDE90046B7C2 /* ListagemContatosController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListagemContatosController.xib; sourceTree = "<group>"; };
+		93E459EE15100E9E00808553 /* contatos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = contatos.plist; path = ../../../../../Desktop/contatos.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,8 +55,11 @@
 		93CBFBD0150EDDB80046B7C2 = {
 			isa = PBXGroup;
 			children = (
+				93E459EE15100E9E00808553 /* contatos.plist */,
 				93CBFBF6150EDDE90046B7C2 /* ListagemContatosController.h */,
 				93CBFBF7150EDDE90046B7C2 /* ListagemContatosController.m */,
+				93C21EB915101B8E00079F06 /* Contato.h */,
+				93C21EBA15101B8E00079F06 /* Contato.m */,
 				93CBFBF8150EDDE90046B7C2 /* ListagemContatosController.xib */,
 				93CBFBE5150EDDB80046B7C2 /* ContatosIP67 */,
 				93CBFBDE150EDDB80046B7C2 /* Frameworks */,
@@ -150,6 +158,7 @@
 			files = (
 				93CBFBEA150EDDB80046B7C2 /* InfoPlist.strings in Resources */,
 				93CBFBFA150EDDE90046B7C2 /* ListagemContatosController.xib in Resources */,
+				93E459EF15100E9E00808553 /* contatos.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +172,7 @@
 				93CBFBEC150EDDB80046B7C2 /* main.m in Sources */,
 				93CBFBF0150EDDB80046B7C2 /* AppDelegate.m in Sources */,
 				93CBFBF9150EDDE90046B7C2 /* ListagemContatosController.m in Sources */,
+				93C21EBB15101B8E00079F06 /* Contato.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +276,7 @@
 				93CBFBF5150EDDB80046B7C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,18 +1,19 @@
 //
 //  AppDelegate.h
-//  ContatosIP67
+//  iNotaFiscal
 //
-//  Created by ios2534 on 12/03/12.
+//  Created by ios2534 on 13/03/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
+@class ViewController;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) UINavigationController *navigationController;
 
--(void) carregaDoPlist;
+@property (strong, nonatomic) ViewController *viewController;
 
 @end
