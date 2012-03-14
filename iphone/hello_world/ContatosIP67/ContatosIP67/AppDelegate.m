@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "ListagemContatosController.h"
+#import "Contato.h"
+
 
 @interface AppDelegate () {
     NSMutableArray *contatos;
@@ -29,10 +31,15 @@
     for (NSString *key in arrayDeContatos) {
         NSDictionary *d = [arrayDeContatos objectForKey:key];
         
-        [contatos addObject:[d objectForKey:@"nome"]];
+        Contato* contato = [Contato criaContatoCompleto: [d objectForKey:@"nome"] 
+                                               comEmail: [d objectForKey:@"email"]  
+                                            comTelefone: [d objectForKey:@"telefone"] 
+                                            comEndereco: [d objectForKey:@"endereco"] 
+                                                comSite: [d objectForKey:@"site"]];
+        
+        [contatos addObject: contato];
     
     }
-
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

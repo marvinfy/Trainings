@@ -7,6 +7,7 @@
 //
 
 #import "ListagemContatosController.h"
+#import "Contato.h"
 
 @implementation ListagemContatosController
 
@@ -96,12 +97,15 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
     
-    cell.textLabel.text = [contatos objectAtIndex:indexPath.row];
+    Contato *c = [contatos objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = c.nome;
+    cell.detailTextLabel.text = c.email;
     
     return cell;
 }
