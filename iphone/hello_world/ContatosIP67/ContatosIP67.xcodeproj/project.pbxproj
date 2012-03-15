@@ -16,6 +16,7 @@
 		93CBFBF0150EDDB80046B7C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CBFBEF150EDDB80046B7C2 /* AppDelegate.m */; };
 		93CBFBF9150EDDE90046B7C2 /* ListagemContatosController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CBFBF7150EDDE90046B7C2 /* ListagemContatosController.m */; };
 		93CBFBFA150EDDE90046B7C2 /* ListagemContatosController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CBFBF8150EDDE90046B7C2 /* ListagemContatosController.xib */; };
+		93D7545B151182A400409F7C /* Contacts.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D7545A151182A400409F7C /* Contacts.png */; };
 		93E459EF15100E9E00808553 /* contatos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93E459EE15100E9E00808553 /* contatos.plist */; };
 		93F1ACF41511537300498469 /* FormularioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F1ACF21511537300498469 /* FormularioController.m */; };
 		93F1ACF51511537300498469 /* FormularioController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F1ACF31511537300498469 /* FormularioController.xib */; };
@@ -37,6 +38,7 @@
 		93CBFBF6150EDDE90046B7C2 /* ListagemContatosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListagemContatosController.h; sourceTree = "<group>"; };
 		93CBFBF7150EDDE90046B7C2 /* ListagemContatosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListagemContatosController.m; sourceTree = "<group>"; };
 		93CBFBF8150EDDE90046B7C2 /* ListagemContatosController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListagemContatosController.xib; sourceTree = "<group>"; };
+		93D7545A151182A400409F7C /* Contacts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Contacts.png; sourceTree = "<group>"; };
 		93E459EE15100E9E00808553 /* contatos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = contatos.plist; path = ../../../../../Desktop/contatos.plist; sourceTree = "<group>"; };
 		93F1ACF11511537300498469 /* FormularioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormularioController.h; sourceTree = "<group>"; };
 		93F1ACF21511537300498469 /* FormularioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormularioController.m; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 		93CBFBD0150EDDB80046B7C2 = {
 			isa = PBXGroup;
 			children = (
+				93D7545A151182A400409F7C /* Contacts.png */,
 				93E459EE15100E9E00808553 /* contatos.plist */,
 				93CBFBF6150EDDE90046B7C2 /* ListagemContatosController.h */,
 				93CBFBF7150EDDE90046B7C2 /* ListagemContatosController.m */,
@@ -126,6 +129,7 @@
 				93CBFBD7150EDDB80046B7C2 /* Sources */,
 				93CBFBD8150EDDB80046B7C2 /* Frameworks */,
 				93CBFBD9150EDDB80046B7C2 /* Resources */,
+				93F1AD0115117E2D00498469 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -170,10 +174,27 @@
 				93CBFBFA150EDDE90046B7C2 /* ListagemContatosController.xib in Resources */,
 				93E459EF15100E9E00808553 /* contatos.plist in Resources */,
 				93F1ACF51511537300498469 /* FormularioController.xib in Resources */,
+				93D7545B151182A400409F7C /* Contacts.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		93F1AD0115117E2D00498469 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Developer/iphoneentitlements401/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		93CBFBD7150EDDB80046B7C2 /* Sources */ = {
@@ -250,10 +271,12 @@
 		93CBFBF4150EDDB80046B7C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ContatosIP67/ContatosIP67-Prefix.pch";
 				INFOPLIST_FILE = "ContatosIP67/ContatosIP67-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -261,10 +284,12 @@
 		93CBFBF5150EDDB80046B7C2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ContatosIP67/ContatosIP67-Prefix.pch";
 				INFOPLIST_FILE = "ContatosIP67/ContatosIP67-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
