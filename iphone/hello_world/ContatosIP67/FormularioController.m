@@ -7,10 +7,22 @@
 //
 
 #import "FormularioController.h"
+#import "Contato.h"
 
 @implementation FormularioController
 
-@synthesize campoNome, campoEmail;
+@synthesize campoNome, campoEmail, delegate;
+
+
+-(Contato *) criaContatoComDadosDoFormulario
+{
+    Contato *contato = [[Contato alloc] init];
+    
+    [contato setNome:campoNome.text];
+    [contato setEmail:campoEmail.text];
+
+    return contato;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,7 +57,7 @@
     UIBarButtonItem *adicionar = [[UIBarButtonItem alloc]
                                initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                target:self
-                               action:@selector(adicionar)
+                               action:@selector(confirmar)
                                ];
     
     self.navigationItem.leftBarButtonItem = voltar;
@@ -57,11 +69,12 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
--(void) adicionar
+-(void) confirmar
 {
+    Contato *contato = [self criaContatoComDadosDoFormulario];
+    [delegate contatoAdicionado:contato];
     [self dismissModalViewControllerAnimated:YES];
 }
-
 
 - (void)viewDidUnload
 {

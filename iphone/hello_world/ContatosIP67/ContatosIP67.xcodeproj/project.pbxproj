@@ -41,6 +41,7 @@
 		93F1ACF11511537300498469 /* FormularioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormularioController.h; sourceTree = "<group>"; };
 		93F1ACF21511537300498469 /* FormularioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormularioController.m; sourceTree = "<group>"; };
 		93F1ACF31511537300498469 /* FormularioController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormularioController.xib; sourceTree = "<group>"; };
+		93F1ACFF1511653800498469 /* ContatoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContatoProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +66,7 @@
 				93CBFBF7150EDDE90046B7C2 /* ListagemContatosController.m */,
 				93F1ACF11511537300498469 /* FormularioController.h */,
 				93F1ACF21511537300498469 /* FormularioController.m */,
+				93F1ACFF1511653800498469 /* ContatoProtocol.h */,
 				93F1ACF31511537300498469 /* FormularioController.xib */,
 				93C21EB915101B8E00079F06 /* Contato.h */,
 				93C21EBA15101B8E00079F06 /* Contato.m */,

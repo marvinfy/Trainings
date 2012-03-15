@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ContatoProtocol.h"
 
 @interface FormularioController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *campoNome;
 @property (weak, nonatomic) IBOutlet UITextField *campoEmail;
+@property (strong, nonatomic) id<ContatoProtocol> delegate;
 
 @end

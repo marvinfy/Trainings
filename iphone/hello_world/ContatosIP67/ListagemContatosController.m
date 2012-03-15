@@ -15,6 +15,7 @@
 
 @synthesize contatos;
 
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -67,9 +68,16 @@
 {
     FormularioController *formularioContatos = [[FormularioController alloc] initWithNibName:@"FormularioController" bundle:[NSBundle mainBundle]];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:formularioContatos];
+
+    formularioContatos.delegate = self;
+    
     [self presentModalViewController:navigationController animated:YES];
+}
 
 
+-(void) contatoAdicionado: (Contato *) contato {
+    [contatos addObject:contato];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidUnload
