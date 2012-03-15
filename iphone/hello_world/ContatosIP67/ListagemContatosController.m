@@ -55,12 +55,26 @@
                                   ];
                                                                         
     self.navigationItem.rightBarButtonItem = adicionar;
+    
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
      
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        [contatos removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject: indexPath] withRowAnimation: UITableViewRowAnimationFade];
+        /*[self.tableView reloadData];*/
+    }
 }
 
 
