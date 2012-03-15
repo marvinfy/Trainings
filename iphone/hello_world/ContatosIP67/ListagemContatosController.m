@@ -9,6 +9,7 @@
 #import "ListagemContatosController.h"
 #import "Contato.h"
 #import "FormularioController.h"
+#import "EditContatoController.h"
 
 
 @implementation ListagemContatosController
@@ -93,6 +94,11 @@
     [contatos addObject:contato];
     [self.tableView reloadData];
 }
+
+-(void) contatoAlterado {
+    [self.tableView reloadData];
+}
+
 
 - (void)viewDidUnload
 {
@@ -202,6 +208,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    Contato *c = [contatos objectAtIndex:indexPath.row];
+    
+    EditContatoController *editarContato = [[EditContatoController alloc]initWithContato:c];
+    
+    editarContato.delegate = self;
+    
+    [self.navigationController pushViewController:editarContato animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+    
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

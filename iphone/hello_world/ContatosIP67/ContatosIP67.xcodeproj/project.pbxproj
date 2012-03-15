@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		93C21EBB15101B8E00079F06 /* Contato.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C21EBA15101B8E00079F06 /* Contato.m */; };
+		93CAF8B11512A3FA005B85D8 /* EditContatoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAF8B01512A3FA005B85D8 /* EditContatoController.m */; };
 		93CBFBE0150EDDB80046B7C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CBFBDF150EDDB80046B7C2 /* UIKit.framework */; };
 		93CBFBE2150EDDB80046B7C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CBFBE1150EDDB80046B7C2 /* Foundation.framework */; };
 		93CBFBE4150EDDB80046B7C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CBFBE3150EDDB80046B7C2 /* CoreGraphics.framework */; };
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		93C21EB915101B8E00079F06 /* Contato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contato.h; sourceTree = "<group>"; };
 		93C21EBA15101B8E00079F06 /* Contato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contato.m; sourceTree = "<group>"; };
+		93CAF8AF1512A3FA005B85D8 /* EditContatoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditContatoController.h; sourceTree = "<group>"; };
+		93CAF8B01512A3FA005B85D8 /* EditContatoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditContatoController.m; sourceTree = "<group>"; };
 		93CBFBDB150EDDB80046B7C2 /* ContatosIP67.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContatosIP67.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93CBFBDF150EDDB80046B7C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		93CBFBE1150EDDB80046B7C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -67,6 +70,8 @@
 				93E459EE15100E9E00808553 /* contatos.plist */,
 				93CBFBF6150EDDE90046B7C2 /* ListagemContatosController.h */,
 				93CBFBF7150EDDE90046B7C2 /* ListagemContatosController.m */,
+				93CAF8AF1512A3FA005B85D8 /* EditContatoController.h */,
+				93CAF8B01512A3FA005B85D8 /* EditContatoController.m */,
 				93F1ACF11511537300498469 /* FormularioController.h */,
 				93F1ACF21511537300498469 /* FormularioController.m */,
 				93F1ACFF1511653800498469 /* ContatoProtocol.h */,
@@ -206,6 +211,7 @@
 				93CBFBF9150EDDE90046B7C2 /* ListagemContatosController.m in Sources */,
 				93C21EBB15101B8E00079F06 /* Contato.m in Sources */,
 				93F1ACF41511537300498469 /* FormularioController.m in Sources */,
+				93CAF8B11512A3FA005B85D8 /* EditContatoController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

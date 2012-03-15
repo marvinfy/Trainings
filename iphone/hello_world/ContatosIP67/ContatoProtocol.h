@@ -11,6 +11,7 @@
 
 @protocol ContatoProtocol <NSObject>
 
+-(void) contatoAlterado;
 -(void) contatoAdicionado: (Contato *) contato;
 
 @end
