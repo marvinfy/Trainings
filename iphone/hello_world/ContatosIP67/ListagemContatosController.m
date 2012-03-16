@@ -58,16 +58,38 @@
     self.navigationItem.rightBarButtonItem = adicionar;
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(exibeMaisAcoes:)];
+                                               
+    [self.tableView addGestureRecognizer:longPress];
 }
 
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+-(void) exibeMaisAcoes: (UIGestureRecognizer *) gesture
+{
+    if (gesture.state == UIGestureRecognizerStateBegan)
+    {
+        CGPoint ponto = [gesture locationInView:self.tableView];
+        NSIndexPath *index = [self.tableView indexPathForRowAtPoint:ponto];
+        
+        Contato *contato = [contatos objectAtIndex:index.row];
+        
+        UIActionSheet *opcoes = [[UIActionSheet alloc] 
+                                 initWithTitle: contato.nome
+                                 delegate:self 
+                                 cancelButtonTitle:@"Cancelar"
+                                 destructiveButtonTitle:nil
+                                 otherButtonTitles:@"Ligar", @"Enviar Email", @"Visualizar site", @"Abrir Mapa", 
+                                 nil];
+        [opcoes showInView: self.view];
+        
+    }
+}
+
+- (void)tableView:
+                    (UITableView *)tableView 
+                    commitEditingStyle: (UITableViewCellEditingStyle) editingStyle 
+                    forRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
     if (editingStyle == UITableViewCellEditingStyleDelete)
@@ -99,6 +121,59 @@
     [self.tableView reloadData];
 }
 
+
+-(void)ligar
+{
+    UIDevice *device = [UIDevice currentDevice];
+    if ([device.model isEqualToString:@"iPhone"])
+    {
+        /*
+         NSString *numero = [NSString stringWithFormat: @"tel:%@", contatoSelecionado.telefone];
+         */
+    }
+    else
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Impossivel fazer ligacao"
+                                    message:@"Seu dispositivo nao e um iPhone" 
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+    }
+}
+
+-(void)enviarEmail
+{
+}
+
+-(void)abrirSite
+{
+}
+
+
+-(void)mostrarMapa
+{
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch(buttonIndex)
+    {
+        case 0:
+            [self ligar];
+            break;
+        case 1:
+            [self enviarEmail];
+            break;
+        case 2:
+            [self abrirSite];
+            break;
+        case 3:
+            [self mostrarMapa];
+            break;
+        default:
+            break;
+    }
+}
 
 - (void)viewDidUnload
 {
@@ -228,5 +303,6 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+                    
 
 @end

@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "ContatoProtocol.h"
 
-@interface ListagemContatosController : UITableViewController <ContatoProtocol>
+@interface ListagemContatosController : UITableViewController <ContatoProtocol, UIActionSheetDelegate>
 
 @property (strong, nonatomic) NSMutableArray *contatos;
 
 
 -(void) mostraFormContato;
+-(void) exibeMaisAcoes: (UIGestureRecognizer *) gesture;
 
 @end
