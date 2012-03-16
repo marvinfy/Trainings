@@ -13,6 +13,10 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *campoNome;
 @property (weak, nonatomic) IBOutlet UITextField *campoEmail;
+@property (weak, nonatomic) IBOutlet UITextField *campoTelefone;
+@property (weak, nonatomic) IBOutlet UITextField *campoEndereco;
+@property (weak, nonatomic) IBOutlet UITextField *campoSite;
+
 @property (strong, nonatomic) id<ContatoProtocol> delegate;
 
 @end

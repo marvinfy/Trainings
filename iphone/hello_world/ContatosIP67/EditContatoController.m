@@ -50,6 +50,9 @@
 {
     self.campoNome.text = self.contato.nome;
     self.campoEmail.text = self.contato.email;
+    self.campoTelefone.text = self.contato.telefone;
+    self.campoEndereco.text = self.contato.endereco;
+    self.campoSite.text = self.contato.site;
 }
 
 
@@ -57,6 +60,9 @@
 {
     [contato setNome:self.campoNome.text];
     [contato setEmail:self.campoEmail.text];
+    [contato setTelefone:self.campoTelefone.text];
+    [contato setEndereco:self.campoEndereco.text];
+    [contato setSite:self.campoSite.text];
     
     [self.delegate contatoAlterado];
     

@@ -10,7 +10,9 @@
 #import "Contato.h"
 
 @implementation FormularioController
-
+@synthesize campoTelefone;
+@synthesize campoEndereco;
+@synthesize campoSite;
 @synthesize campoNome, campoEmail, delegate;
 
 
@@ -20,7 +22,10 @@
     
     [contato setNome:campoNome.text];
     [contato setEmail:campoEmail.text];
-
+    [contato setTelefone:campoTelefone.text];
+    [contato setEndereco:campoEndereco.text];    
+    [contato setSite:campoSite.text];
+    
     return contato;
 }
 
@@ -79,8 +84,10 @@
 - (void)viewDidUnload
 {
     [self setCampoNome:nil];
-    [self setCampoNome:nil];
     [self setCampoEmail:nil];
+    [self setCampoTelefone:nil];
+    [self setCampoEndereco:nil];
+    [self setCampoSite:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
