@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		937FBF8F151408C000F8C5C7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937FBF8E151408C000F8C5C7 /* MessageUI.framework */; };
 		93C21EBB15101B8E00079F06 /* Contato.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C21EBA15101B8E00079F06 /* Contato.m */; };
 		93CAF8B11512A3FA005B85D8 /* EditContatoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAF8B01512A3FA005B85D8 /* EditContatoController.m */; };
 		93CBFBE0150EDDB80046B7C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CBFBDF150EDDB80046B7C2 /* UIKit.framework */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		937FBF8E151408C000F8C5C7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		93C21EB915101B8E00079F06 /* Contato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contato.h; sourceTree = "<group>"; };
 		93C21EBA15101B8E00079F06 /* Contato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contato.m; sourceTree = "<group>"; };
 		93CAF8AF1512A3FA005B85D8 /* EditContatoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditContatoController.h; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				937FBF8F151408C000F8C5C7 /* MessageUI.framework in Frameworks */,
 				93CBFBE0150EDDB80046B7C2 /* UIKit.framework in Frameworks */,
 				93CBFBE2150EDDB80046B7C2 /* Foundation.framework in Frameworks */,
 				93CBFBE4150EDDB80046B7C2 /* CoreGraphics.framework in Frameworks */,
@@ -66,6 +69,7 @@
 		93CBFBD0150EDDB80046B7C2 = {
 			isa = PBXGroup;
 			children = (
+				937FBF8E151408C000F8C5C7 /* MessageUI.framework */,
 				93D7545A151182A400409F7C /* Contacts.png */,
 				93E459EE15100E9E00808553 /* contatos.plist */,
 				93CBFBF6150EDDE90046B7C2 /* ListagemContatosController.h */,

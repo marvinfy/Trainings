@@ -64,7 +64,6 @@
     [self.tableView addGestureRecognizer:longPress];
 }
 
-
 -(void) exibeMaisAcoes: (UIGestureRecognizer *) gesture
 {
     if (gesture.state == UIGestureRecognizerStateBegan)
@@ -72,10 +71,10 @@
         CGPoint ponto = [gesture locationInView:self.tableView];
         NSIndexPath *index = [self.tableView indexPathForRowAtPoint:ponto];
         
-        Contato *contato = [contatos objectAtIndex:index.row];
+        contatoSelecionado = [contatos objectAtIndex:index.row];
         
         UIActionSheet *opcoes = [[UIActionSheet alloc] 
-                                 initWithTitle: contato.nome
+                                 initWithTitle: contatoSelecionado.nome
                                  delegate:self 
                                  cancelButtonTitle:@"Cancelar"
                                  destructiveButtonTitle:nil
@@ -84,6 +83,11 @@
         [opcoes showInView: self.view];
         
     }
+}
+
+- (void)abrirAplicativoComURL:(NSString *)url
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
 - (void)tableView:
@@ -127,9 +131,8 @@
     UIDevice *device = [UIDevice currentDevice];
     if ([device.model isEqualToString:@"iPhone"])
     {
-        /*
-         NSString *numero = [NSString stringWithFormat: @"tel:%@", contatoSelecionado.telefone];
-         */
+        NSString *numero = [NSString stringWithFormat:@"tel:%@", contatoSelecionado.telefone];
+        [self abrirAplicativoComURL:numero];
     }
     else
     {
@@ -143,15 +146,43 @@
 
 -(void)enviarEmail
 {
+    
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *enviadorEmail = [[MFMailComposeViewController alloc] init];
+        
+        enviadorEmail.mailComposeDelegate = self;
+        [enviadorEmail setToRecipients:[NSArray arrayWithObject:contatoSelecionado.email]];
+        [enviadorEmail setSubject:@"Caelum"];
+        
+        [self presentModalViewController:enviadorEmail animated:YES];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ops"
+                                                        message: @"Não é possível enviar e-mails!"
+                                                       delegate: nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+    
+    }
+    
 }
 
 -(void)abrirSite
 {
+    NSString *url = contatoSelecionado.site;
+    [self abrirAplicativoComURL:url];
 }
 
 
 -(void)mostrarMapa
 {
+    NSString *url = [[NSString stringWithFormat:
+                      @"http://maps.google.com/maps?q=%@", contatoSelecionado.endereco]
+                     stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [self abrirAplicativoComURL:url];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -173,6 +204,8 @@
         default:
             break;
     }
+    
+    contatoSelecionado = nil;
 }
 
 - (void)viewDidUnload
@@ -180,6 +213,12 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller 
+         didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated

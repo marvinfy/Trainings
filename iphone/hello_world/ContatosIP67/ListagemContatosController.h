@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "ContatoProtocol.h"
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface ListagemContatosController : UITableViewController <ContatoProtocol, UIActionSheetDelegate>
+@interface ListagemContatosController : UITableViewController <ContatoProtocol, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
+{
+    Contato *contatoSelecionado;
+}
 
 @property (strong, nonatomic) NSMutableArray *contatos;
 

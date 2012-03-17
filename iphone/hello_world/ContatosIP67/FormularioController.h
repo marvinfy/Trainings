@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *campoTelefone;
 @property (weak, nonatomic) IBOutlet UITextField *campoEndereco;
 @property (weak, nonatomic) IBOutlet UITextField *campoSite;
+@property (weak, nonatomic) IBOutlet UIButton *botaoAdicionarImagem;
 
 @property (strong, nonatomic) id<ContatoProtocol> delegate;
 

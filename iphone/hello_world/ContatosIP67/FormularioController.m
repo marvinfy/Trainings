@@ -13,6 +13,7 @@
 @synthesize campoTelefone;
 @synthesize campoEndereco;
 @synthesize campoSite;
+@synthesize botaoAdicionarImagem;
 @synthesize campoNome, campoEmail, delegate;
 
 
@@ -88,6 +89,7 @@
     [self setCampoTelefone:nil];
     [self setCampoEndereco:nil];
     [self setCampoSite:nil];
+    [self setBotaoAdicionarImagem:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
