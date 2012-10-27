@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/imagens">
+        <file>agenda.png</file>
+        <file>background_blue.jpg</file>
+        <file>clock.png</file>
+        <file>exit.png</file>
+        <file>favorites.png</file>
+        <file>go_1.png</file>
+        <file>goback_1.png</file>
+        <file>help.png</file>
+        <file>next.png</file>
+        <file>prev.png</file>
+        <file>stop.png</file>
+        <file>web.png</file>
+    </qresource>
+</RCC>
