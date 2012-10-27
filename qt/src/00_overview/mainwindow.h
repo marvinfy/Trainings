@@ -31,6 +31,8 @@ private slots:
 
     void on_actionSobre_triggered();
 
+    void on_actionActionFavoritos_toggled(bool arg1);
+
 private:
     Ui::MainWindow *ui;
     QProgressBar* m_progressBar;

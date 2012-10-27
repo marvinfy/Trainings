@@ -77,3 +77,8 @@ void MainWindow::on_actionSobre_triggered()
 {
 
 }
+
+void MainWindow::on_actionActionFavoritos_toggled(bool arg1)
+{
+    ui->dockWidget_2->setVisible(arg1);
+}
