@@ -6,12 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>518</width>
-    <height>368</height>
+    <width>542</width>
+    <height>414</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Qt Dummy Browser</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="recursos/recursos.qrc">
+    <normaloff>:/imagens/web.png</normaloff>:/imagens/web.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(223, 223, 223);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -43,7 +50,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>TextLabel</string>
+         <string>0</string>
         </property>
        </widget>
       </item>
@@ -63,7 +70,7 @@
      </layout>
     </item>
     <item>
-     <widget class="QFrame" name="frame">
+     <widget class="QFrame" name="webFrame">
       <property name="frameShape">
        <enum>QFrame::Panel</enum>
       </property>
@@ -87,7 +94,11 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="webEdit"/>
+          <widget class="QLineEdit" name="webEdit">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; color:#1f7dc5;&quot;&gt;Digite a URL&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; color:#1f7dc5;&quot;&gt;aqui&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;:/imagens/web.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QPushButton" name="webButton">
@@ -104,6 +115,12 @@
        </item>
        <item>
         <widget class="QWebView" name="webView">
+         <property name="minimumSize">
+          <size>
+           <width>504</width>
+           <height>161</height>
+          </size>
+         </property>
          <property name="url">
           <url>
            <string>about:blank</string>
@@ -114,6 +131,19 @@
       </layout>
      </widget>
     </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -121,20 +151,128 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>518</width>
+     <width>542</width>
      <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFIle">
+    <property name="title">
+     <string>FIle</string>
+    </property>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuShow">
+    <property name="title">
+     <string>Show</string>
+    </property>
+    <addaction name="actionShow_Hide_broser"/>
+   </widget>
+   <widget class="QMenu" name="menuAjuda">
+    <property name="title">
+     <string>Ajuda</string>
+    </property>
+    <addaction name="actionSobre"/>
+   </widget>
+   <addaction name="menuFIle"/>
+   <addaction name="menuShow"/>
+   <addaction name="menuAjuda"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
+   <property name="windowTitle">
+    <string>Toolbar</string>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionExit"/>
+   <addaction name="separator"/>
+   <addaction name="actionShow_Hide_broser"/>
+   <addaction name="separator"/>
+   <addaction name="actionSobre"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="dockWidget">
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents"/>
+  </widget>
+  <action name="actionSobre">
+   <property name="icon">
+    <iconset resource="recursos/recursos.qrc">
+     <normaloff>:/imagens/help.png</normaloff>:/imagens/help.png</iconset>
+   </property>
+   <property name="text">
+    <string>About...</string>
+   </property>
+   <property name="statusTip">
+    <string>About this application</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normalon>:/imagens/exit.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Exit the app</string>
+   </property>
+   <property name="iconText">
+    <string>Exit</string>
+   </property>
+   <property name="toolTip">
+    <string>Exit the app</string>
+   </property>
+   <property name="statusTip">
+    <string>Exits the application</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionShow_Hide_broser">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="recursos/recursos.qrc">
+     <normaloff>:/imagens/web.png</normaloff>:/imagens/web.png</iconset>
+   </property>
+   <property name="text">
+    <string>Show/Hide browser</string>
+   </property>
+   <property name="iconText">
+    <string>Web</string>
+   </property>
+   <property name="toolTip">
+    <string>Show/Hide browser</string>
+   </property>
+   <property name="statusTip">
+    <string>Show or Hide the web browser</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>

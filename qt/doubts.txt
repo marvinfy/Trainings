@@ -1,0 +1,3 @@
+Delete ok, gerenciado pelo destrutor virtual do QObject.. mas se eu quiser deletar, ok?
+
+Semantica do setParent do widget(parent) == parent->addWidget?
