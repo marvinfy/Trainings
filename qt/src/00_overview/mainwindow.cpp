@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QUrl>
+#include "aboutdlg.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -75,7 +76,8 @@ void MainWindow::on_actionShow_Hide_broser_toggled(bool show)
 
 void MainWindow::on_actionSobre_triggered()
 {
-
+    AboutDlg dlg(this);
+    dlg.exec();
 }
 
 void MainWindow::on_actionActionFavoritos_toggled(bool arg1)

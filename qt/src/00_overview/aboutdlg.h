@@ -14,7 +14,7 @@ class AboutDlg : public QDialog
 public:
     explicit AboutDlg(QWidget *parent = 0);
     ~AboutDlg();
-    
+
 private:
     Ui::AboutDlg *ui;
 };
