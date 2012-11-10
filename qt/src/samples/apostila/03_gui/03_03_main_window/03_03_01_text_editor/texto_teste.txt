@@ -1,4 +1,0 @@
-
-texto inicial para teste do TextEditor...
-
-
