@@ -2,7 +2,8 @@
 #include "ui_mainwindow.h"
 #include <QUrl>
 #include "aboutdlg.h"
-
+#include <QTime>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -13,11 +14,33 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->menuShow->addSeparator();
     ui->menuShow->addAction(ui->mainToolBar->toggleViewAction());
+//    ui->menuShow->addSeparator();
+//    ui->menuShow->addAction(ui->mainToolBar->toggleViewAction());
+
+    m_timer.start(1000);
+    connect(&m_timer, SIGNAL(timeout()), this, SLOT(showTime()));
+
+    // para que nao demore 1s para exibir pela primeira vez
+    showTime();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    int canClose = QMessageBox::question(this, "Sair?", "Deseja realmente sair?", QMessageBox::Yes | QMessageBox::No);
+
+    if (canClose == QMessageBox::No)
+    {
+        event->ignore();
+    }
+//    else
+//    {
+//        event->accept(); // Implicito
+//    }
 }
 
 void MainWindow::on_webButton_clicked()
@@ -83,4 +106,11 @@ void MainWindow::on_actionSobre_triggered()
 void MainWindow::on_actionActionFavoritos_toggled(bool arg1)
 {
     ui->dockWidget_2->setVisible(arg1);
+}
+
+void MainWindow::showTime()
+{
+    QTime curTime = QTime::currentTime();
+    QString timeStr = curTime.toString("hh:mm:ss");
+    ui->digitalClock->display(timeStr);
 }

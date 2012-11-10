@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>542</width>
+    <width>653</width>
     <height>414</height>
    </rect>
   </property>
@@ -67,6 +67,16 @@
         </property>
        </spacer>
       </item>
+      <item>
+       <widget class="QLCDNumber" name="digitalClock">
+        <property name="digitCount">
+         <number>8</number>
+        </property>
+        <property name="segmentStyle">
+         <enum>QLCDNumber::Flat</enum>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
     <item>
@@ -97,6 +107,9 @@
           <widget class="QLineEdit" name="webEdit">
            <property name="toolTip">
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; color:#1f7dc5;&quot;&gt;Digite a URL&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; color:#1f7dc5;&quot;&gt;aqui&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;:/imagens/web.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="statusTip">
+            <string>URL</string>
            </property>
           </widget>
          </item>
@@ -151,7 +164,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>542</width>
+     <width>653</width>
      <height>25</height>
     </rect>
    </property>

@@ -1,3 +1,10 @@
 Delete ok, gerenciado pelo destrutor virtual do QObject.. mas se eu quiser deletar, ok?
+Sim, OK!
 
 Semantica do setParent do widget(parent) == parent->addWidget?
+parentalizacao ciclica
+
+QCoreApplication
+EventLoop
+
+Containers: megalomania ou necessidade em funcao de compiladores que nao suportam STL (symbian OS)??

@@ -1,0 +1,279 @@
+//////////////////////////////////
+			if (!fileName.isEmpty())
+			{
+				// define formato e arquivo pdf
+				m_print->setOutputFormat(QPrinter::PdfFormat);
+				m_print->setOutputFileName(fileName);
+
+				QPainter paint(m_print); // objeto QPainter direcionado para m_print
+
+				// Adequar dimensões (do widget para a printer):
+				QRect rcPrint=paint.viewport();  // destino é a viewPort de "Printer"
+				QSizeF scaledSize = QSizeF(width(), height());
+				// Escala dimensões do widget para a printer:
+				scaledSize.scale( rcPrint.width(), rcPrint.height(), Qt::KeepAspectRatio );
+				// aplica a escala:
+				//paint.scale(scaledSize.width()/width(), scaledSize.height()/height());
+				// copia do widget para a printer:
+				// x e y: centralizar na largura:
+				qreal x = (rcPrint.width()-scaledSize.width())/2; // metade de: (largura atual menos largura escalada)
+
+				// Define as coordenadas físicas para a dimensão atual já escalada proporcionalmente:
+				paint.setViewport(int(x), 0, int(scaledSize.width()),
+								  int(scaledSize.height()) );
+				// coordenadas lógicas a escalar para as físicas:
+				paint.setWindow(0,0, width(), height());
+				render( &paint );
+
+				// PRINTER: abrir JÁ o pdf:
+				QDesktopServices::openUrl( QUrl("file:///" + fileName) );
+			}
+
+//////////////////////////////////
+			if (!fileName.isEmpty())
+			{
+				// define formato e arquivo pdf
+				m_print->setOutputFormat(QPrinter::PdfFormat);
+				m_print->setOutputFileName(fileName);
+
+				// PRINTER: desenhar na impressora (pdf)
+				//m_toPrinter = true;
+				repaint(); // chama paintEvent direta e imediatamente
+
+				QPainter paint;
+				paint.begin(m_print);
+				paint.setRenderHints( QPainter::Antialiasing
+								| QPainter::TextAntialiasing
+								| QPainter::SmoothPixmapTransform );
+				//
+				QRect rcPrint=paint.viewport();  // destino é a viewPort de "Printer"
+				QSizeF scaledSize = QSizeF(width(), height());
+				// Escala dimensões do widget para a printer:
+				scaledSize.scale( rcPrint.width(), rcPrint.height(), Qt::KeepAspectRatio );
+				// aplica a escala:
+				paint.scale(scaledSize.width()/width(), scaledSize.height()/height());
+				// copia do widget para a printer:
+				render( &paint, QPoint(), QRegion(), 0);
+
+				// garantir que a janela seja repintada também
+				//m_toPrinter=false;
+				//repaint();
+
+				// PRINTER: abrir JÁ o pdf:
+				QDesktopServices::openUrl( QUrl("file:///" + fileName) );
+			}
+
+//////////////////////////////////
+
+/*
+// paintEvent: chamada sempre que a janela precisa ser repintada
+// ou sempre que uma nova pintura foi forçada
+// com uma chamada a "update" ou "repaint":
+void MainWidget::paintEvent(QPaintEvent * pEv)
+{
+	QPainter paint;
+	QRectF rect; // retângulo para área-destino do desenho
+
+	if ( m_toPrinter )
+	{
+		paint.begin(m_print);
+		rect=paint.viewport();  // destino é a viewPort de "Printer"
+		// define área de impressão para imprimir o retângulo de fundo:
+//		QSize backSize = QSize( int(rect.width()), int(rect.height()) );
+	//	backSize.scale( width(), height(), Qt::KeepAspectRatio);
+		QSize backSize = QSize( width(), height() );
+		backSize.scale( int(rect.width()), int(rect.height()), Qt::KeepAspectRatio);
+	//	paint.translate(0,0);
+	//	paint.scale( rect.width()/width(), rect.height()/height());
+		paint.setViewport ( 0,0, backSize.width(), backSize.height() );
+		paint.setWindow ( 0,0, width(), height() );
+
+//		paint.setWindow( 0,0, width(), height()); //0,0, rect.width(), rect.height()-this->height() ); //int(rect.x()), int(rect.y()), int(width), int(height));
+//		paint.set
+
+		qDebug() << rect;
+		qDebug() << paint.window();
+		qDebug() << m_print->paperRect();
+		qDebug() << m_print->pageRect();
+	}
+	else
+	{
+		paint.begin(this);
+		rect.setRect(0,0, this->width(), this->height()); // destino é a janela
+	}
+
+	// suavização de bordas e pixmaps:
+	paint.setRenderHints( QPainter::Antialiasing
+								| QPainter::TextAntialiasing
+								| QPainter::SmoothPixmapTransform );
+
+	const qreal width = rect.width();
+	const qreal height = rect.height();
+
+	// Agora, para prosseguir na pintura/desenho,
+	// mapeamos as dimensões iniciais da janela para as dimensões atuais
+	// de modo que não haja distorção no desenho dos itens,
+	// caso tenha havido um redimensionamento da janela
+	// que tenha mudado as proporções iniciais entre altura e largura:
+	QSizeF scaledSize = QSizeF(m_idealWidth, m_idealHeight);
+
+	// Em seguida, escalamos a dimensão inicial para a atual,
+	// mantendo as proporções(Qt::KeepAspectRatio)
+	scaledSize.scale( width, height, Qt::KeepAspectRatio );
+
+	// pinta o fundo da janela usando TODA a área da janela:
+	paint.fillRect(rect, Qt::black ); // pinta área total
+
+	// x e y: centralizar na largura e na altura:
+	qreal x = (width-scaledSize.width())/2; // metade de: (largura atual menos largura escalada)
+	qreal y = (height-scaledSize.height())/2; // idem para altura
+
+	// Define as coordenadas físicas para a dimensão atual já escalada proporcionalmente:
+	paint.setViewport(int(x),int(y), int(scaledSize.width()),
+					  int(scaledSize.height()) );
+
+	// Por último, mantem as coordenadas lógicas de acordo com dimensão inicial(considerada ideal);
+	// desse modo, ao definir posições e tamanhos dos itens podemos usar
+	// geometria fixa, baseada nas dimensões originais/ideais,
+	// e QPainter irá mapeá-la para as coordenadas físicas:
+	paint.setWindow(0,0, m_idealWidth, m_idealHeight);
+
+	// *** OBS: o mesmo efeito seria conseguido, fazendo-se:
+		// paint.translate(x,y);
+		// paint.scale(scaledSize.width()/m_idealWidth, scaledSize.height()/m_idealHeight);
+	// *** ao invés de paint.setViewPort(...) seguido de paint.setWindow(...).
+
+	m_scaledWidth = scaledSize.width();
+	m_scaledX = x;
+
+	paint.setPen(QPen(Qt::darkGray,2)); // caneta
+	paint.setBrush( m_background );
+	// retângulo que delimita área de desenho:
+	paint.drawRect( 2,2, m_idealWidth-4, m_idealHeight-4);
+
+	// desenha texto:
+	drawText(paint);
+	// desenha players:
+	drawPlayers(paint);
+	// desenha a bola:
+	drawBall(paint);
+
+	paint.end();
+}
+*/
+
+////////////////////////////////////////////////////////
+
+// paintEvent: chamada sempre que a janela precisa ser repintada
+// ou sempre que uma nova pintura foi forçada
+// com uma chamada a "update" ou "repaint":
+void MainWidget::paintEvent(QPaintEvent * pEv)
+{
+	QImage img(m_idealWidth, m_idealHeight, QImage::Format_ARGB32_Premultiplied);
+	QPainter paint(&img);
+	paint.initFrom(this);
+
+	// suavização de bordas e pixmaps:
+	paint.setRenderHint( QPainter::Antialiasing, true);
+//	paint.setRenderHint( QPainter::TextAntialiasing, true);
+	//paint.setRenderHint( QPainter::SmoothPixmapTransform, true );
+
+	paint.fillRect(img.rect(), Qt::black ); // pinta área total
+
+	paint.setPen(QPen(Qt::darkGray,2)); // caneta
+	paint.setBrush( m_background );
+	// retângulo que delimita área de desenho:
+	paint.drawRect( 2,2, m_idealWidth-4, m_idealHeight-4);
+
+	// desenha texto:
+	drawText(paint);
+	// desenha players:
+	drawPlayers(paint);
+	// desenha a bola:
+	drawBall(paint);
+	paint.end();
+
+	// === escalar a imagem para o device-destino:
+
+	QPainter devPaint;
+	QRectF rect; // retângulo para área-destino do desenho
+	if ( m_toPrinter )
+	{
+		devPaint.begin(m_print);
+		rect=devPaint.viewport();  // destino é a viewPort de "Printer"
+	}
+	else
+	{
+		devPaint.begin(this);
+		rect.setRect(0,0, this->width(), this->height()); // destino é a janela
+	}
+	// suavização de bordas e pixmaps:
+/*	devPaint.setRenderHints( QPainter::Antialiasing
+								| QPainter::TextAntialiasing
+								| QPainter::SmoothPixmapTransform );
+*/
+	const qreal width = rect.width();
+	const qreal height = rect.height();
+
+	// Agora, para prosseguir na pintura/desenho,
+	// mapeamos as dimensões iniciais da janela para as dimensões atuais
+	// de modo que não haja distorção no desenho dos itens,
+	// caso tenha havido um redimensionamento da janela
+	// que tenha mudado as proporções iniciais entre altura e largura:
+	QSizeF scaledSize = QSizeF(m_idealWidth, m_idealHeight);
+
+	// Em seguida, escalamos a dimensão inicial para a atual,
+	// mantendo as proporções(Qt::KeepAspectRatio)
+	scaledSize.scale( width, height, Qt::KeepAspectRatio );
+
+	// x e y: centralizar na largura e na altura:
+	qreal x = (width-scaledSize.width())/2; // metade de: (largura atual menos largura escalada)
+	qreal y = (height-scaledSize.height())/2; // idem para altura
+
+	// Define as coordenadas físicas para a dimensão atual já escalada proporcionalmente:
+	devPaint.setViewport(int(x),int(y), int(scaledSize.width()),
+					  int(scaledSize.height()) );
+
+	// Por último, mantem as coordenadas lógicas de acordo com dimensão inicial(considerada ideal);
+	// desse modo, ao definir posições e tamanhos dos itens podemos usar
+	// geometria fixa, baseada nas dimensões originais/ideais,
+	// e QPainter irá mapeá-la para as coordenadas físicas:
+	devPaint.setWindow(0,0, m_idealWidth, m_idealHeight);
+
+	// *** OBS: o mesmo efeito seria conseguido, fazendo-se:
+		// devPaint.translate(x,y);
+		// devPaint.scale(scaledSize.width()/m_idealWidth, scaledSize.height()/m_idealHeight);
+	// *** ao invés de paint.setViewPort(...) seguido de paint.setWindow(...).
+
+	// imagem é desenhada no device destino:
+	devPaint.drawImage(0,0, img);
+
+	devPaint.end();
+
+	m_scaledWidth = scaledSize.width();
+	m_scaledX = x;
+}
+
+////////////////////////////////////////////////////////
+
+if ( m_toPrinter )
+	{
+
+/*		paint.begin(m_print);
+		rect=paint.viewport();  // destino é a viewPort de "Printer"
+		// define área de impressão para imprimir o retângulo de fundo:
+//		QSize backSize = QSize( int(rect.width()), int(rect.height()) );
+	//	backSize.scale( width(), height(), Qt::KeepAspectRatio);
+		QSize backSize = QSize( width(), height() );
+		backSize.scale( int(rect.width()), int(rect.height()), Qt::KeepAspectRatio);
+	//	paint.translate(0,0);
+	//	paint.scale( rect.width()/width(), rect.height()/height());
+		paint.setViewport ( 0,0, backSize.width(), backSize.height() );
+		paint.setWindow ( 0,0, width(), height() );
+
+//		paint.setWindow( 0,0, width(), height()); //0,0, rect.width(), rect.height()-this->height() );
+//int(rect.x()), int(rect.y()), int(width), int(height));
+//		paint.set
+*/
+	}
+
