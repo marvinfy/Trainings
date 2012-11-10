@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->cpusEdit->setText(QString::number(QThread::idealThreadCount()));
-    enum { LoopCountDefault = 1000*1000*1000 };
+    enum { LoopCountDefault = 10*1000*1000 };
     ui->loopCountEdit->setText(QString::number(LoopCountDefault));
     ui->progressBar->hide();
 
@@ -37,7 +37,14 @@ void MainWindow::on_processEventsButton_clicked()
 }
 void MainWindow::on_threadButton_clicked()
 {
+    beginProcess();
+    WorkerThread* wthread =new WorkerThread(this);
+    wthread->setObjectName("meu_filhinho_threadizado");
 
+    connect(wthread, SIGNAL(progress(quint32)), this, SLOT(progress(quint32)));
+    connect(wthread, SIGNAL(finished()), this, SLOT(endProcess()));
+
+    wthread->startProcess(ui->loopCountEdit->text().toULong());
 }
 void MainWindow::beginProcess()
 {
@@ -60,6 +67,12 @@ void MainWindow::endProcess()
     if (processEvents)
     {
         delete processEvents;
+    }
+
+    WorkerThread* wthread = findChild<WorkerThread*>("meu_filhinho_threadizado");
+    if (wthread)
+    {
+        delete wthread;
     }
 }
 
