@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'workerthread.h'
 **
-** Created: Sat Nov 10 16:49:44 2012
+** Created: Sat Nov 10 17:37:42 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,26 +23,34 @@ static const uint qt_meta_data_WorkerThread[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       1,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: signature, parameters, type, tag, flags
+      28,   14,   13,   13, 0x05,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_WorkerThread[] = {
-    "WorkerThread\0"
+    "WorkerThread\0\0progressCount\0"
+    "progress(quint32)\0"
 };
 
 void WorkerThread::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    Q_UNUSED(_o);
-    Q_UNUSED(_id);
-    Q_UNUSED(_c);
-    Q_UNUSED(_a);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Q_ASSERT(staticMetaObject.cast(_o));
+        WorkerThread *_t = static_cast<WorkerThread *>(_o);
+        switch (_id) {
+        case 0: _t->progress((*reinterpret_cast< quint32(*)>(_a[1]))); break;
+        default: ;
+        }
+    }
 }
 
 const QMetaObjectExtraData WorkerThread::staticMetaObjectExtraData = {
@@ -76,6 +84,18 @@ int WorkerThread::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = QThread::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
     return _id;
+}
+
+// SIGNAL 0
+void WorkerThread::progress(quint32 _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_END_MOC_NAMESPACE
