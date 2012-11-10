@@ -1,7 +1,0 @@
-http://qt.digia.com
-http://www.qtcentre.org
-
-http://www.amazon.com/Standard-Library-Tutorial-Reference-2nd/dp/0321623215/ref=la_B001ITYMY2_1_1?ie=UTF8&qid=1351350131&sr=1-1
-The C++ Standard Library: A Tutorial and Reference (2nd Edition) 
-
-
