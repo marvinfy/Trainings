@@ -1,0 +1,59 @@
+AULA 2
+
+- conclusão da aula 1 (projeto 00_overview)
+
+- criando um novo slot manualmente ("showTime") na MainWindow.s
+	conectando o signal "timeout" de um QTimer a esse slot
+
+- redefinindo a virtual "closeEvent" para interceptar
+	o fechamento de uma janela (no caso, na MainWindow).
+
+
+
+- relacionamento parent-child;
+	-- um objeto parent é responsável por liberar a memória
+	alocada para seus "children";
+	-- se os objetos forem GUI(widgets), o objeto "parent" será
+	também um "container" para seus "children"
+	-- se um objeto não tem "parent" deve cuidar do seu próprio
+	tempo de vida; então, de preferência alocá-lo na pilha;
+	-- se um objeto "GUI"(widgets) não tem um "parent" ele será
+	uma "janela principal". Se tivermos muitos objetos assim
+	então teremos muitas "janelas principais".
+	-- se antecipamos a liberação de um objeto "child"
+	(invocando "delete" manualmente) ele irá retirar o seu
+	endereço da lista de "children" do seu parent 
+	(e assim não haverá dupla deleção);
+
+- signals e slots;
+    -- melhor alternativa para comunicar objetos de classes diferentes
+    -- esses objetos não precisam se conhecer;
+    -- um objeto emite um "signal" quando algo acontece, o que 
+	significa que será percorrida a lista ligada de funções "slot"
+	conectadas a esse signal e todas serão chamadas.
+    -- um "controller" conhece os dois (ou mais objetos) em que é 
+	necessário estabelecer conecções signal/slot.
+    -- se um objeto sai de escopo(ou é deletado) são desfeitas
+	todas as conecções signal/slot em que ele esteja envolvido
+    -- a emissão de um signal pode ser síncrona ou assíncrona
+       --- será síncrona se os objetos estiverem em um mesmo thread e
+       não existir nenhuma situação de assincronia
+	 (como o timeout de um QTimer, uma ação sobre um Widget, etc)
+       --- será assíncrona se os objetos estiverem em threads
+	   diferentes ou se estiver em situação de assincronia
+           Neste caso a emissão do signal (isto é, a chamada das 
+	   funções "slot") é transferida para a fila de eventos
+	   e será tratada pelo event-loop.
+
+    -- também podemos forçar que uma conexão que em princípio seria
+	síncrona torne-se assíncrona passando explicitamente
+	no 5.argumento da função "conect" o valor "Qt::QueuedConnection
+
+
+- Na apostila:
+
+-- módulos de Qt 
+-- classe QObject: 
+	--- suporte ao relacionamento "parent/child"
+	--- suporte às conexões signal/slot
+

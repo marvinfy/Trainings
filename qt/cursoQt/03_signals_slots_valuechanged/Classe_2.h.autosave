@@ -1,0 +1,22 @@
+#ifndef CLASSE_2_H
+#define CLASSE_2_H
+
+#include <QObject>
+
+class Classe_2 : public QObject
+{
+    Q_OBJECT
+public:
+    explicit Classe_2(QObject *parent = 0);
+
+	signals:
+			void valueChanged(int val);
+
+	public slots:
+			void setValue(int val);
+
+private:
+		int m_value;
+};
+
+#endif // CLASSE_2_H

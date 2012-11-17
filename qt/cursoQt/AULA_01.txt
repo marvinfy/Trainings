@@ -1,0 +1,85 @@
+AULA 1
+
+- Usando a mainwindow (classe QMainWindow)
+	- menubar, toolbar, statusbar
+	- objetos QAction 
+  	  (ações comuns para itens de menu e toolbar)
+
+	- propriedades (sempre sob a mesma classe
+		e tendo o mesmo nome usado no código)
+		Exemplos:
+		objectName (é esse nome que usaremos no código)
+		text;
+		iconText;
+		tooltip;
+		statusTip;
+	na ToolBar: tamanho dos ícones, e 
+	  style: texto, ícone  ou ícone com texto
+
+- criando e usando um arquivos de recursos
+	"Add New" / Qt / Qt Resource File;
+	Adicionar um prefixo
+	Adicionar arquivos sob o prefixo
+
+- modos de trabalho do QtDesigner: 
+	- Edit Widgets;
+	- Edit Signals/Slots;
+	Permitindo neste segundo modo conetar "signals"
+	de um objeto a slots de um ou mais mais objetos
+	As conexões podem ser recíprocas
+	(exemplo slider->spin, spin->slider)
+	e isso não causará recursão infinita
+	pois um slot só deve emitir um signal
+	se houve mudança de estado naquilo ao que o
+	signal se refere.
+	Exemplo: recebo um "setValue"; se o valor 
+	for diferente do que já tenho aceito esse valor
+	e emito um signal "valueChanged".
+	Do contrário não faço nada.
+    --Atenção para isso quando você criar os seus próprios slots
+
+- usando o "goto Slot" sobre qualquer objeto no Designer.
+	(nomenclatura especial para os slots para sucesso
+		da "connectSlotsByName":
+		"on_objectName_signalName(...)"
+
+- Layouts:
+	- subLayouts agrupando alguns objetos
+	- layout principal de qualquer container 
+		(inclusive janela principal)
+	   aplicado diretamente sobre o container
+	
+	- usando spacers
+	- mudando a propriedade "size Policy"
+
+- Folhas de Estilo definindo formatos para Classes inteiras
+	ou para objetos em particular (CSS 3).
+
+- utilizando a statusBar (no caso para uma barra de progresso)
+
+- usando um sub-container (no caso uma frame)
+	para exibir/ocultar um conjunto de widgets.
+	(e esse container deve ter o seu "layout principal)
+
+- alterando o arquivo ".pro" para adicionar o módulo webkit
+
+- adicionando um novo "Form" (no caso o AboutDlg)
+	Add New / Qt / Qt Designer Form Class
+
+- abrindo esse Diálogo "about" em um slot da MainWindow
+
+- acrescentando um DockWidget
+
+- capturando no código as "toggleViewActions" do DockWidget e da ToolBar
+  e acrescentando em um item da barra de menu (menuExibir)
+
+- mudando o ícone um dessas "toggleViewActions".
+
+
+// FIZEMOS na AULA 2:
+
+- criando um novo slot manualmente ("showTime") na MainWindow.s
+	conectando o signal "timeout" de um QTimer a esse slot
+
+- redefinindo a virtual "closeEvent" para interceptar
+	o fechamento de uma janela (no caso, na MainWindow).

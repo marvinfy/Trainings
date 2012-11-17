@@ -1,0 +1,16 @@
+
+// forward declaration:
+
+class B;
+
+class A
+{
+	B * b1; // OK
+	B & b2; // OK
+	B b3; // ERRO: tamanho de "B" não é conhecido aqui.
+}
+
+class B
+{
+	A * a;
+}
