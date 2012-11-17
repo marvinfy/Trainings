@@ -1,11 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'workerthread.h'
 **
-<<<<<<< HEAD
-** Created: Sat Nov 17 09:44:52 2012
-=======
-** Created: Sat Nov 10 17:37:42 2012
->>>>>>> ee02519f3da198dbf43eb5bbc7b458cd146c190b
+** Created: Sat Nov 17 15:50:35 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -41,8 +37,8 @@ static const uint qt_meta_data_WorkerThread[] = {
 };
 
 static const char qt_meta_stringdata_WorkerThread[] = {
-    "WorkerThread\0\0progressCount\0"
-    "progress(quint32)\0"
+    "WorkerThread\0\0result,status\0"
+    "taskDone(QString,bool)\0"
 };
 
 void WorkerThread::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -51,7 +47,7 @@ void WorkerThread::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         Q_ASSERT(staticMetaObject.cast(_o));
         WorkerThread *_t = static_cast<WorkerThread *>(_o);
         switch (_id) {
-        case 0: _t->progress((*reinterpret_cast< quint32(*)>(_a[1]))); break;
+        case 0: _t->taskDone((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< bool(*)>(_a[2]))); break;
         default: ;
         }
     }
@@ -97,9 +93,9 @@ int WorkerThread::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void WorkerThread::progress(quint32 _t1)
+void WorkerThread::taskDone(const QString & _t1, bool _t2)
 {
-    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_END_MOC_NAMESPACE

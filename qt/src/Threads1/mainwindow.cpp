@@ -39,7 +39,11 @@ void MainWindow::on_threadButton_clicked()
 {
     beginProcess();
     WorkerThread* wthread =new WorkerThread(this);
+<<<<<<< HEAD
     wthread->setObjectName("wt");
+=======
+    wthread->setObjectName("meu_filhinho_threadizado");
+>>>>>>> ee02519f3da198dbf43eb5bbc7b458cd146c190b
 
     connect(wthread, SIGNAL(progress(quint32)), this, SLOT(progress(quint32)));
     connect(wthread, SIGNAL(finished()), this, SLOT(endProcess()));
@@ -78,6 +82,12 @@ void MainWindow::endProcess()
 
         // Posterga delecao para o eventLoop
         wthread->deleteLater();
+    }
+
+    WorkerThread* wthread = findChild<WorkerThread*>("meu_filhinho_threadizado");
+    if (wthread)
+    {
+        delete wthread;
     }
 }
 

@@ -9,15 +9,17 @@ class WorkerThread : public QThread
     Q_OBJECT
 public:
     explicit WorkerThread(QObject *parent = 0);
-    void startTask()
+    void startTask(QString* taskData)
     {
+        m_status = true;
+        m_taskData = taskData;
         m_waitForTask.release(1);
     }
 
     void finish()
     {
         m_canRun = false;
-        startTask();
+        startTask(0);
     }
 protected:
     void run();
@@ -27,8 +29,10 @@ signals:
 public slots:
 
 private:
-    QSemaphone m_waitForTask;
+    bool m_canRun;
+    QSemaphore m_waitForTask;
     bool m_status;
+    QString* m_taskData;
     
 };
 
