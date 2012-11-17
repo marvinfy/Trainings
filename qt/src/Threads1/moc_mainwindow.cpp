@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Sat Nov 10 17:21:37 2012
+** Created: Sat Nov 17 09:44:51 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -36,6 +36,7 @@ static const uint qt_meta_data_MainWindow[] = {
       71,   11,   11,   11, 0x08,
       86,   11,   11,   11, 0x08,
      113,   99,   11,   11, 0x08,
+     137,  131,   11,   11, 0x08,
 
        0        // eod
 };
@@ -44,6 +45,7 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0on_processEventsButton_clicked()\0"
     "on_threadButton_clicked()\0beginProcess()\0"
     "endProcess()\0progressCount\0progress(quint32)\0"
+    "event\0closeEvent(QCloseEvent*)\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -57,6 +59,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 2: _t->beginProcess(); break;
         case 3: _t->endProcess(); break;
         case 4: _t->progress((*reinterpret_cast< quint32(*)>(_a[1]))); break;
+        case 5: _t->closeEvent((*reinterpret_cast< QCloseEvent*(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -94,9 +97,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTime>
+#include <QCloseEvent>
 
 namespace Ui {
 class MainWindow;
@@ -23,6 +24,7 @@ private slots:
     void beginProcess();
     void endProcess();
     void progress(quint32 progressCount);
+    void closeEvent(QCloseEvent *event);
 
 private:
     Ui::MainWindow *ui;
