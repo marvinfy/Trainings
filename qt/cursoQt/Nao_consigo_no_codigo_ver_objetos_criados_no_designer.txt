@@ -1,9 +1,0 @@
-Em caso de crash do QtCreator,
-
-(não consegue visualizar objetos criados no designer)
-
-1 - delete os arquivos ui_*.h
-2 - delete o arquivo *.pro.user (NÃO o ".pro")
-3 - no QtCreator execute "clean"
-4 - execute "Run QMake"
-5 - execute "Rebuild nome do projeto"		
