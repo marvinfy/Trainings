@@ -1,5 +1,5 @@
 #include <QtGui/QApplication>
-#include "mainwindow.h"
+#include "widget.h"
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 
      const char * path = "c:/cursoQt/dados/";
  #else
-     const char * path = "/home/user_name/cursoQt/dados/";
+     const char * path = "/home/curso1/workspace/src/Trainings/qt/cursoQt/";
 #endif
 
      QDir dir(path);
@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
      if ( !jaExiste )
          createFakeData( db );
 
-     MainWidget w (db);
+     Widget w (db);
     w.show();
 
     return a.exec();
