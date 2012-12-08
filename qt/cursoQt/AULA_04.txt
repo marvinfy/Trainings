@@ -1,0 +1,49 @@
+Aula 4
+
+- Mutexes
+	- lock, tryLock(timeout) 
+		-tryLock retorna falso se não consequir a posse
+			do mutex até o tempo estabelecido
+	- unlock
+
+- QMutexLocker lock na construtora e garante o unlock do QMutex
+
+- nunca use o mesmo mutex para situações diferentes.
+
+- separando situações de leitura de situações de escrita para
+  bloqueio
+	- usar QReadWriteLock ao invés de QMutex
+	- .lockForRead();
+	- .lockForWrite();
+	
+  - usando QReadLocker (garante o unlock do QReadWriteLock após
+				um "lockForRead" na construtora
+  - usando QWriteLocker (garante o unlock do QReadWriteLock após
+				um "lockForWrite" na construtora
+
+
+- threads em espera por ordens de trabalho
+	(usando semáforos com contador iniciado com zero)
+   void run()
+   {	
+	while ( canRun )
+	{
+		semaforo.acquire(1);
+		if ( canRun )
+		{
+			QString pacote ( queue.dequeue() );
+			doSomething(pacote);
+		}
+	}
+   }
+
+- thread controlador descobre qual dos threads de trabalho está 
+  ocioso e chama uma função do thread de trabalho para "acordá-lo"
+	ou (solução mais "elegante" e isolada)
+	posta um evento (postEvent) com um objeto de uma derivada
+	de QEvent. O evento é postado apenas para um thread ocioso.
+
+	O Thread de trabalho recebe o evento na virtual "event";
+	se o evento for o esperado:
+	queue.enqueue(argumento_do_evento);
+	semaforo.release(1); // faz o thread em "run" sair do acquire.

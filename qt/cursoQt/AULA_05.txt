@@ -1,0 +1,33 @@
+AULA - 5
+
+- threads em espera por ordens de trabalho
+	(usando semáforos com contador iniciado com zero)
+   void run()
+   {	
+	while ( canRun )
+	{
+		semaforo.acquire(1);
+		if ( canRun )
+		{
+			QString pacote ( queue.dequeue() );
+			doSomething(pacote);
+		}
+	}
+   }
+
+- thread controlador descobre qual dos threads de trabalho está 
+  ocioso e posta um evento (postEvent) com um objeto de uma derivada
+	de QEvent. O evento é postado apenas para um thread ocioso.
+
+	O Thread de trabalho recebe o evento na virtual "event";
+	se o evento for o esperado:
+	queue.enqueue(argumento_do_evento);
+	semaforo.release(1); // faz o thread em "run" sair do acquire.
+
+
+- resolvendo o problema do projeto "threads_ruim"
+
+Ao invés de mutex.lock(); cout.... ; mutex.unlock();
+emitimos um sinal para o LogThread que simplesmente faz o cout.
+(ou grava em um arquivo).
+

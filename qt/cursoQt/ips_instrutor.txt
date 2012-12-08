@@ -1,0 +1,15 @@
+\\agit-bm\instrutor
+ou
+\\ 192.168.2.63\instrutor
+
+
+
+
+
+instrutor antigo:
+\\192.168.2.31\instrutor
+
+usuario : curso1
+senha : agit1
+
+

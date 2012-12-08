@@ -1,0 +1,32 @@
+
+1) cada função exportada deve conter o simbolo
+do arquivo nome_dll_global.h
+(ver o exemplo)
+
+
+2) No cliente, #include "arqprincipal.h" da DLL
+(no exemplo é o "funcoesdll.h")
+
+3) no arquivo ".pro" do cliente
+acrescentar o(s) diretório(s) onde estão a(s) LIB(s) de importação
+e as respectivas LIBS.
+(no exemplo:
+ LIBS +=  -L../16_Dll/debug
+ LIBS += -l16_Dll
+)
+
+4) NA EXECUÇÃO, a DLL (arquivo ".dll" no windows e ".so" no Unix)
+deve estar nesses diretórios:
+
+no windows
+a) diretório do executável;
+b) diretório corrente (geralmente igual ao anterior)
+c)  diretórios "windows" e "windows/system32"
+d) diretórios constantes na variável de ambiente "PATH"
+
+no unix
+a) /lib
+b) /usr/lib
+c) diretórios habilitados pelo "root" através do utilitário "ldconfig"
+
+

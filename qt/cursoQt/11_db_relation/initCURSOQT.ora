@@ -1,0 +1,69 @@
+##############################################################################
+# Database initialization file built by EMS SQL Manager for Oracle
+##############################################################################
+
+###########################################
+# Cache and I/O
+###########################################
+db_block_size = 4096
+db_file_multiblock_read_count = 8
+db_cache_size = 33554432
+
+###########################################
+# Database Identification
+###########################################
+db_name = CURSOQT
+compatible = 10.2.0
+
+###########################################
+# Diagnostics and Statistics
+###########################################
+background_dump_dest = C:\oraclexe\oradata\oradata\admin\CURSOQT\bdump
+user_dump_dest = C:\oraclexe\oradata\oradata\admin\CURSOQT\udump
+core_dump_dest = C:\oraclexe\oradata\oradata\admin\CURSOQT\cdump
+timed_statistics = TRUE
+
+###########################################
+# Security and Auditing
+###########################################
+remote_login_passwordfile = exclusive
+
+###########################################
+# File Configuration
+###########################################
+control_files = ("C:\oraclexe\oradata\oradata\oradata\CURSOQT\control_01.ctl", "C:\oraclexe\oradata\oradata\oradata\CURSOQT\control_02.ctl")
+
+###########################################
+# Processes and Sessions and SGA memory use
+###########################################
+processes = 150
+cpu_count = 1
+log_buffer = 4194304
+
+###########################################
+# System Managed Undo and Rollback Segments
+###########################################
+undo_management = AUTO
+undo_retention = 900
+undo_tablespace = UNDO
+
+###########################################
+# Pools
+###########################################
+java_pool_size = 33554432
+large_pool_size = 8388608
+shared_pool_size = 50331648
+
+###########################################
+# Sort, Hash Joins, Bitmap Indexes
+###########################################
+pga_aggregate_target = 25165824
+sort_area_size = 524288
+
+###########################################
+# Optimizer
+###########################################
+_hash_join_enabled = FALSE
+query_rewrite_enabled = FALSE
+star_transformation_enabled = FALSE
+

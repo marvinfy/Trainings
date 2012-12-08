@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/images" >
+        <file>back.png</file>
+        <file>checkbox.png</file>
+        <file>checkbox_button.png</file>
+        <file>creator_edit_off.png</file>
+        <file>creator_edit_on.png</file>
+        <file>creator_help_off.png</file>
+        <file>creator_help_on.png</file>
+        <file>mapa_brasil.png</file>
+        <file>next.png</file>
+        <file>ok_button.png</file>
+        <file>quit.png</file>
+        <file>radio_button.png</file>
+        <file>radiobutton.png</file>
+        <file>radiobutton-off.png</file>
+        <file>radiobutton-on.png</file>
+        <file>textbold.png</file>
+        <file>textcenter.png</file>
+    </qresource>
+</RCC>

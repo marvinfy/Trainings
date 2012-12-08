@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/imagens">
+        <file>prev.png</file>
+        <file>first.png</file>
+        <file>last.png</file>
+        <file>next.png</file>
+        <file>insert.png</file>
+        <file>update.png</file>
+        <file>delete.png</file>
+        <file>cancel.png</file>
+        <file>ok.png</file>
+    </qresource>
+</RCC>

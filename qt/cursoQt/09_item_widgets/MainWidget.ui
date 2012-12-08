@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWidget</class>
+ <widget class="QWidget" name="MainWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWidget</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLineEdit" name="lineEdit">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QSplitter" name="mainVSplitter">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="childrenCollapsible">
+      <bool>false</bool>
+     </property>
+     <widget class="QTreeWidget" name="treeWidget">
+      <column>
+       <property name="text">
+        <string notr="true">Items</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="icon">
+        <iconset resource="recursos/recursos.qrc">
+         <normaloff>:/imagens/down.png</normaloff>:/imagens/down.png</iconset>
+       </property>
+      </column>
+      <item>
+       <property name="text">
+        <string>Linha 1</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Linha 1 Sub 1</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Linha 1 Sub 1 Sub 1</string>
+         </property>
+        </item>
+       </item>
+       <item>
+        <property name="text">
+         <string>Linha 1 Sub 2</string>
+        </property>
+       </item>
+      </item>
+      <item>
+       <property name="text">
+        <string>Linha 2</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Linha 2 Sub 1</string>
+        </property>
+       </item>
+      </item>
+     </widget>
+     <widget class="QSplitter" name="table_list_HSplitter">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="childrenCollapsible">
+       <bool>false</bool>
+      </property>
+      <widget class="QTableWidget" name="tableWidget">
+       <row>
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="icon">
+         <iconset resource="recursos/recursos.qrc">
+          <normaloff>:/imagens/cd_add.png</normaloff>:/imagens/cd_add.png</iconset>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>2</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="icon">
+         <iconset resource="recursos/recursos.qrc">
+          <normaloff>:/imagens/cd_delete.png</normaloff>:/imagens/cd_delete.png</iconset>
+        </property>
+       </row>
+       <column>
+        <property name="text">
+         <string>A</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="icon">
+         <iconset resource="recursos/recursos.qrc">
+          <normaloff>:/imagens/clock.png</normaloff>:/imagens/clock.png</iconset>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>B</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>recursos/config.png</normaloff>recursos/config.png</iconset>
+        </property>
+       </column>
+       <item row="0" column="0">
+        <property name="text">
+         <string>Linha 1-A</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="icon">
+         <iconset resource="recursos/recursos.qrc">
+          <normaloff>:/imagens/email.png</normaloff>:/imagens/email.png</iconset>
+        </property>
+       </item>
+       <item row="0" column="1">
+        <property name="text">
+         <string>Linha 1-B</string>
+        </property>
+       </item>
+       <item row="1" column="0">
+        <property name="text">
+         <string>Linha 2-A</string>
+        </property>
+       </item>
+       <item row="1" column="1">
+        <property name="text">
+         <string>Linha 2-B</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QListWidget" name="listWidget">
+       <item>
+        <property name="text">
+         <string>Linha 1</string>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="background">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </property>
+        <property name="foreground">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </property>
+        <property name="icon">
+         <iconset resource="recursos/recursos.qrc">
+          <normaloff>:/imagens/cd_add.png</normaloff>:/imagens/cd_add.png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Linha 2</string>
+        </property>
+        <property name="toolTip">
+         <string>Esta é a linha 1</string>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="background">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </property>
+        <property name="foreground">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>127</blue>
+          </color>
+         </brush>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>recursos/cd_delete.png</normaloff>recursos/cd_delete.png</iconset>
+        </property>
+       </item>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="recursos/recursos.qrc"/>
+ </resources>
+ <connections/>
+</ui>

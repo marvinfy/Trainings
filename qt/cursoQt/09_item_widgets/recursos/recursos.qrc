@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/imagens">
+        <file>ficheiro.png</file>
+        <file>cd.png</file>
+        <file>cd_add.png</file>
+        <file>cd_delete.png</file>
+        <file>clock.png</file>
+        <file>config.png</file>
+        <file>down.png</file>
+        <file>email.png</file>
+    </qresource>
+</RCC>

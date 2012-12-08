@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/images" >
+        <file>dock_4.png</file>
+        <file>dock_1.png</file>
+        <file>dock_2.png</file>
+        <file>dock_3.png</file>
+        <file>quit.png</file>
+    </qresource>
+</RCC>

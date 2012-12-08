@@ -1,0 +1,48 @@
+SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES  WHERE TABLE_NAME = 'contatos';
+
+CREATE TABLE contatos (
+	con_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE,
+	name VARCHAR(40) NOT NULL,
+	UNIQUE (con_id),
+	UNIQUE (name),
+ PRIMARY KEY (con_id)
+) ENGINE = InnoDB;
+
+CREATE TABLE cidades (
+	cid_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE,
+	name VARCHAR(40) NOT NULL,
+	UNIQUE (cid_id),
+ PRIMARY KEY (cid_id)
+) ENGINE = InnoDB;
+
+CREATE TABLE mov_tipo (
+	mt_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE,
+	name VARCHAR(40) NOT NULL,
+	UNIQUE (mt_id),
+	UNIQUE (name),
+ PRIMARY KEY (mt_id)
+) ENGINE = InnoDB;
+
+CREATE TABLE clientes (
+	cli_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE,
+	name VARCHAR(40) NOT NULL,
+	cidade_id BIGINT UNSIGNED NOT NULL,
+	contato_id BIGINT UNSIGNED NOT NULL,
+	UNIQUE (cli_id),
+ PRIMARY KEY (cli_id),
+ CONSTRAINT Relation_cid_cli Foreign Key (cidade_id) references cidades (cid_id) on delete  restrict on update  restrict,
+ CONSTRAINT Relation_con_cli Foreign Key (contato_id) references contatos (con_id) on delete  restrict on update  restrict
+) ENGINE = InnoDB;
+
+CREATE TABLE movimento (
+	mov_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE,
+	cliente_id BIGINT UNSIGNED NOT NULL,
+	tipo_id BIGINT UNSIGNED NOT NULL,
+	mov_date DATE NOT NULL,
+	description VARCHAR(40) NOT NULL,
+	UNIQUE (mov_id),
+ PRIMARY KEY (mov_id),
+ CONSTRAINT Relation_cli_mov Foreign Key (cliente_id) references clientes (cli_id) on delete  restrict on update  restrict,
+ CONSTRAINT Relation_movtipo_mov Foreign Key (tipo_id) references mov_tipo (mt_id) on delete  restrict on update  restrict
+) ENGINE = InnoDB;
+

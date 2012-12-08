@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MovimentoEditDialog</class>
+ <widget class="QDialog" name="MovimentoEditDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>497</width>
+    <height>279</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="clienteHLayout">
+     <item>
+      <widget class="QLabel" name="clienteLabel">
+       <property name="text">
+        <string>Cliente: </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="clienteCombo"/>
+     </item>
+     <item>
+      <spacer name="clienteHSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="tipoHLayout">
+     <item>
+      <widget class="QLabel" name="tipoLabel">
+       <property name="text">
+        <string>Tipo do Movimento: </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="tipoCombo"/>
+     </item>
+     <item>
+      <spacer name="tipoHSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="lastMovHLayout">
+     <item>
+      <widget class="QLabel" name="lastMovLabel">
+       <property name="text">
+        <string>Data do Movimento: </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDateEdit" name="movDate">
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="lastMovHSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="descriptionHLayout">
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="descrLabel">
+       <property name="text">
+        <string>Descrição</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="descrEdit"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="buttonsSeparatorVSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>115</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="movimentoButtonsHLayout">
+     <item>
+      <widget class="QGroupBox" name="movimentoEditGroup">
+       <property name="title">
+        <string>Concluir Edição: </string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="leftMargin">
+         <number>5</number>
+        </property>
+        <property name="topMargin">
+         <number>3</number>
+        </property>
+        <property name="rightMargin">
+         <number>5</number>
+        </property>
+        <property name="bottomMargin">
+         <number>3</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="okBtn">
+          <property name="text">
+           <string>Confirmar</string>
+          </property>
+          <property name="icon">
+           <iconset resource="recursos/recursos.qrc">
+            <normaloff>:/imagens/ok.png</normaloff>:/imagens/ok.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="cancelBtn">
+          <property name="text">
+           <string>Cancelar</string>
+          </property>
+          <property name="icon">
+           <iconset resource="recursos/recursos.qrc">
+            <normaloff>:/imagens/cancel.png</normaloff>:/imagens/cancel.png</iconset>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="movimentoNavGroup">
+       <property name="title">
+        <string>Navegação: </string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <property name="leftMargin">
+         <number>5</number>
+        </property>
+        <property name="topMargin">
+         <number>3</number>
+        </property>
+        <property name="rightMargin">
+         <number>5</number>
+        </property>
+        <property name="bottomMargin">
+         <number>3</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="movimentoNavFirstBtn">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="recursos/recursos.qrc">
+            <normaloff>:/imagens/first.png</normaloff>:/imagens/first.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="movimentoNavPrevBtn">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="recursos/recursos.qrc">
+            <normaloff>:/imagens/prev.png</normaloff>:/imagens/prev.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="movimentoNavNextBtn">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="recursos/recursos.qrc">
+            <normaloff>:/imagens/next.png</normaloff>:/imagens/next.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="movimentoNavLastBtn">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="recursos/recursos.qrc">
+            <normaloff>:/imagens/last.png</normaloff>:/imagens/last.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <spacer name="movimentoButtonsHSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>28</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="recursos/recursos.qrc"/>
+ </resources>
+ <connections/>
+</ui>

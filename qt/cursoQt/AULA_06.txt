@@ -1,0 +1,29 @@
+AULA 6
+
+- uso do QtConcurrent;
+- QtConcurrent::run(...)
+- paralelização de loops.
+
+
+- Arquitetura Model/View
+
+O model é um modo uniforme (padrão) de acesso a dados.
+Podemos derivar de QAbstractItemModel (ou de uma de suas derivadas)
+ou usar as derivadas concretas:
+- QDirModel;
+- QStringListModel
+- QStandardItemModel
+
+- as classes View: QListView, QTableView, QTreeView, QColumnView
+
+- as classes "de conveniência" para situações simples:
+	-elas encapsulam uma "view" e um "model":
+	QListWidget, QTableWidget, QTreeWidget.
+
+
+- Temos o delegate que cumpre uma das funções de um controller
+  (tal como um controller é definido no pattern MVC).
+
+	essa função é a de adaptação dos dados entre a view e o model
+	- por exemplo, usando uma combobox ao invés de um lineedit
+	para edição/exibição dos dados de uma coluna.

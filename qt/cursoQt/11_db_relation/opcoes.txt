@@ -1,0 +1,680 @@
+//=========================
+
+//=========================
+
+	// == recupera o "id" do cliente atualmente selecionado:
+	QSqlTableModel * cliComboModel =	static_cast<QSqlTableModel*>(ui->clienteCombo->model());
+	int cliComboCol = cliComboModel->fieldIndex("cli_id");
+	int cliComboRow= ui->clienteCombo->currentIndex();
+	m_currentClienteId = cliComboModel->index(cliComboRow, cliComboCol).data().toInt();
+
+	// O código acima é mais "canônico"...
+	// Contudo, como o 'model' da combo é resultado de uma "relation",
+	// ele tem apenas duas colunas: "chave" e "valor associado".
+	// Logo, poderíamos simplesmente fazer isto:
+
+	//	int cliComboRow= ui->clienteCombo->currentIndex();
+	//	m_currentClienteId = ui->clienteCombo->model()->index(cliComboRow, 0).data().toInt();
+	// onde 0(zero) é o índice da coluna "chave" no "relationModel" da "combo"), no caso o "id" do cliente.
+
+//=========================
+
+// campo cujo valor é definido pelo banco:
+	m_clientesModel->record().field(m_colInd.cliId).setAutoValue(true);
+	m_clientesModel->record().field(m_colInd.cliId).setReadOnly(true);
+
+	// campo cujo valor é definido pelo banco:
+	m_movimentoModel->record().field(m_colInd.movId).setAutoValue(true);
+	m_movimentoModel->record().field(m_colInd.movId).setReadOnly(true);
+
+//=========================
+if ( !query.exec("SELECT tablename FROM pg_tables where tablename= 'clientes'") )
+
+
+// definindo a estratégia de edição do model: OnRowChange ; alternativas: OnFieldChange e OnManualSubmit
+	//m_clientesModel->setEditStrategy(QSqlTableModel::OnFieldChange);
+
+
+// ================================
+
+	else // indice inválido (nenhuma linha de "clientes" selecionada)
+	{
+		// filtra para não exibir movimentos:
+	//	m_movimentoModel->setFilter("cliente_id = -1"); // id impossivel: nenum movimento será exibido
+		// modifica o label:
+		// ui->movimentoLabel->setText(movLabelFormatBegin+"Movimentos"+movLabelFormatEnd);
+	}
+
+
+//===============================
+
+		for ( QSqlDriver::DriverFeature i=QSqlDriver::Transactions; i<=QSqlDriver::MultipleResultSets; i=QSqlDriver::DriverFeature(i+QSqlDriver::QuerySize))
+				qDebug() <<  QMetaEnum::valueToKey(QSqlDriver::DriverFeature(i)) << db.driver()->hasFeature(i);
+			/*	QSqlQuery query(db);
+			if ( !query.exec("SET SESSION client_encoding = 'latin1'"))
+				qDebug() << query.lastError().text();
+// =========================
+
+		m_clientesModel->query().first();
+		m_clientesModel->query().seek(row);
+		QSqlTableModel * cidRel = m_clientesModel->relationModel(m_colInd.cliCidade);
+		QSqlTableModel * conRel = m_clientesModel->relationModel(m_colInd.cliContato);
+		m_clientesModel->relationModel(m_colInd.cliCidade)->query().seek(findExactly_(cidRel, 1,
+																												m_clientesModel->index(row, m_colInd.cliCidade).data().toString()));
+		m_clientesModel->relationModel(m_colInd.cliContato)->query().seek(findExactly_(conRel, 1,
+																							  m_clientesModel->index(row, m_colInd.cliContato).data().toString()));
+
+		qDebug() << query.isSelect() <<   query.isActive() << query.isValid() << query.at() << (query.at() > QSql::BeforeFirstRow);
+
+		qDebug() << "vai submit";
+		QSqlTableModel * cidRel = m_clientesModel->relationModel(m_colInd.cliCidade);
+		int cidRow = findExactly_(cidRel, 1,
+										  m_clientesModel->index(row, m_colInd.cliCidade).data().toString());
+		int cidId = cidRel->index(cidRow, 0).data().toInt();
+
+		QSqlTableModel * conRel = m_clientesModel->relationModel(m_colInd.cliContato);
+		int conRow = findExactly_(conRel, 1,
+										  m_clientesModel->index(row, m_colInd.cliContato).data().toString());
+		int conId = conRel->index(conRow, 0).data().toInt();
+		QString queryText(QString("UPDATE clientes SET name = '%1', cidade_id = %2, contato_id = %3 WHERE cli_id = %4")
+								.arg(name).arg(cidId).arg(conId).arg(clienteId));
+
+// ==========================
+
+
+		QString queryText("UPDATE clientes SET name = :name, cidade_id = :cidade, contato_id = :contato WHERE cli_id = :id);
+		if ( !query.prepare(queryText))
+		{
+			qDebug() << query.lastError().text();
+			return;
+		}
+		query.bindValue(":name", name);
+		query.bindValue(":cidade", cidId);
+		query.bindValue(":contato", conId);
+		query.bindValue(":id", clienteId);
+		if (!query.exec())
+			errMsg = QString("Falha ao alterar o cliente selecionado: %1").arg(query.lastError().text());
+//============
+void Widget::keyPressEvent ( QKeyEvent * event )
+{
+	if ( event->key()==Qt::Key_Return || event->key()==Qt::Key_Enter )
+	{
+		qDebug() << "kr entrando";
+		m_clientesModel->query().seek(ui->clientesTable->currentIndex().row());
+		qDebug() << "kr saindo";
+	}
+	Widget::keyPressEvent(event);
+}
+
+// =========================
+
+void Widget::on_movimentoNavFirstBtn_clicked()  // PRIMEIRO
+{
+	if ( m_movimentoModel->rowCount() > 0 )
+	{
+		int firstRow = 0;
+		ui->movimentoTable->setFocus();
+		ui->movimentoTable->setCurrentIndex(m_movimentoModel->index(firstRow,0));
+		ui->movimentoTable->verticalScrollBar()->setValue(firstRow);
+	}
+}
+
+
+
+
+void Widget::on_movimentoNavPrevBtn_clicked() // ANTERIOR
+{
+	int row = ui->movimentoTable->currentIndex().row() - 1;
+	if ( row >= 0 )
+	{
+			 ui->movimentoTable->setFocus();
+			 ui->movimentoTable->setCurrentIndex(m_movimentoModel->index(row,0));
+			 ui->movimentoTable->verticalScrollBar()->setValue(row);
+	}
+}
+
+void Widget::on_movimentoNavNextBtn_clicked() // PRÓXIMO
+{
+	int row = ui->movimentoTable->currentIndex().row() + 1;
+	if ( row < m_movimentoModel->rowCount()  )
+	{
+			 ui->movimentoTable->setFocus();
+			ui->movimentoTable->setCurrentIndex(m_movimentoModel->index(row,0));
+			ui->movimentoTable->verticalScrollBar()->setValue(row);
+
+	}
+}
+
+void Widget::on_movimentoNavLastBtn_clicked() // ÚLTIMO
+{
+	int lastRow = m_movimentoModel->rowCount() - 1;
+	if ( lastRow >= 0 )
+	{
+		ui->movimentoTable->setFocus();
+		ui->movimentoTable->setCurrentIndex(m_movimentoModel->index(lastRow,0));
+		ui->movimentoTable->scrollToBottom();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+void	DateDelegate::setEditorData ( QWidget * editor, const QModelIndex & index ) const
+{
+	if (index.column() == m_delegateColumn)
+	{
+		 QVariant colData = index.model()->data(index, Qt::DisplayRole);
+		 QLineEdit * edit = static_cast<QLineEdit *>(editor);
+
+		  if ( colData.isValid())
+		  {
+			  QDate date  ( colData.toDate() );
+			  edit->setText(date.toString("dd/MM/yyyy"));
+		  }
+		  else
+			  edit->setText("");
+	  }
+	 else
+		  QItemDelegate::setEditorData(editor,  index);
+
+}
+
+
+
+//===============
+
+
+#include <QtGui/QApplication>
+#include "Widget.h"
+
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlDriver>
+#include <QSqlError>
+#include <QDate>
+#include <QFile>
+#include <QMetaEnum>
+#include <QDebug>
+#include <cstdlib>
+#include <ctime>
+#include <QMessageBox>
+#include <QInputDialog>
+
+bool createFakeData(QSqlDatabase & db, QString & error);
+
+int main(int argc, char *argv[])
+{
+	QApplication a(argc, argv);
+
+	bool ok;
+	QStringList drivers;
+	drivers << "Sqlite" << "Postgre";
+	QString driverName = QInputDialog::getItem(a.activeWindow(), "Selecionar Banco de Dados",
+														  "Selecione um dos bancos de dados disponíveis:", drivers,0, false, &ok);
+	if (ok && !driverName.isEmpty())
+	{
+		if ( driverName == drivers[0] )
+			driverName = "QSQLITE";
+		else if ( driverName == drivers[1])
+			driverName = "QPSQL";
+		else
+			driverName="";
+	}
+
+	if (!ok || driverName.isEmpty())
+	{
+		QMessageBox::warning(0, "Erro", "Nenhum banco foi selecionado. Impossível prosseguir.");
+		return 0;
+	}
+
+	bool dbIsEmpty;
+	QSqlDatabase db;
+
+	if ( driverName == "QSQLITE")
+	{
+			#ifdef Q_OS_WIN
+					 const char * fileName = "c:/cursoQt/dados/18_db_teste.db";
+			#else
+					 const char * fileName =
+											"/home/nome_user/cursoQt/dados/18_db_teste.db";
+			#endif
+
+			dbIsEmpty = !QFile::exists(fileName);
+			db = QSqlDatabase::addDatabase("QSQLITE");
+			db.setDatabaseName(fileName);
+
+	}
+	else
+	{
+		db = QSqlDatabase::addDatabase("QPSQL");
+		db.setDatabaseName("cursoqt");
+		db.setHostName("localhost");
+		db.setUserName("postgres");
+		db.setPassword("1950bamp");
+	}
+
+	if ( !db.open()) // no SQlite se o "teste.db" não existir será criado aqui.
+	{
+		QMessageBox::critical(0,  "ERRO", "Erro na abertura do banco\n" + db.lastError().text());
+		return 0;
+	}
+	QSqlQuery query(db);
+
+	if ( db.driverName() == "QPSQL")
+	{
+		// descobre se as tabelas já foram criadas:
+		if ( !query.exec("SELECT tablename FROM pg_tables where tablename= 'clientes'") )
+		{
+			QMessageBox::warning(0, "ERRO", "Falha na seleção de tabelas no Postgre:\n"+query.lastError().text());
+			return 0;
+		}
+		dbIsEmpty = !query.next();
+	}
+
+	if ( dbIsEmpty) // se o arquivo(SQLITE) NÃO existia antes do open, ou se houve erro na abertura do banco(PSQL) ...
+	{
+		db.transaction();
+
+		QString error;
+		if ( createFakeData(db, error) )  // cria tabelas e alimenta com dados para teste.
+			db.commit();
+		else
+		{
+			QMessageBox::critical(0, "ERRO", error);
+			db.rollback();
+			return 0;
+		}
+	}
+
+	Widget w(db);
+	w.show();
+
+	return a.exec();
+}
+
+bool query_exec_(QSqlQuery & query, const QString & queryText, int & contador, QString & error );
+
+bool createFakeData(QSqlDatabase & db, QString & error)
+{
+	QTime time;
+	time.start();
+
+	QSqlQuery query(db);
+
+	if ( db.driverName()=="QSQLITE")   // -------- SQLITE
+	{
+		// tabela de cidades:
+		if (!query.exec("CREATE TABLE cidades ("
+							 "cid_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+							 "name VARCHAR(40) NOT NULL)") )
+		{
+			error = "Criando tabela cidades:\n" + query.lastError().text();
+			return false;
+		}
+
+		// tabela de contatos:
+		if ( !query.exec("CREATE TABLE contatos ("
+							  "con_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+							  "name VARCHAR(40) NOT NULL)") )
+		{
+			error = "Criando tabela contatos:\n" + query.lastError().text();
+			return false;
+		}
+
+		// tabela de clientes:
+		if ( ! query.exec("CREATE TABLE clientes ("
+								"cli_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+								"name VARCHAR(40) NOT NULL, "
+								"cidade_id INTEGER NOT NULL, "
+								"contato_id INTEGER NOT NULL, "
+								"FOREIGN KEY (cidade_id) REFERENCES cidades(cli_id), "
+								"FOREIGN KEY (contato_id) REFERENCES contatos(con_id))") )
+		{
+			error = "Criando tabela clientes:\n" + query.lastError().text();
+			return false;
+		}
+
+		// tabela de tipo de movimento:
+		if (!query.exec("CREATE TABLE mov_tipo ("
+											  "mt_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+											  "name VARCHAR(40) NOT NULL)"))
+		{
+			error = "Criando tabela mov_tipo:\n" + query.lastError().text();
+			return false;
+		}
+
+		// tabela de movimento
+		if ( !query.exec("CREATE TABLE movimento ("
+					  "mov_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+					  "cliente_id INTEGER NOT NULL, "
+					  "tipo_id INTEGER NOT NULL, "
+					  "mov_date DATE NOT NULL, "
+					  "description VARCHAR(40) NOT NULL, "
+					  "FOREIGN KEY (cliente_id) REFERENCES clientes(cli_id), "
+					  "FOREIGN KEY (tipo_id) REFERENCES mov_tipo(mt_id))" ) )
+		{
+			error = "Criando tabela movimento:\n" + query.lastError().text();
+			return false;
+		}
+
+	}
+	else if ( db.driverName() == "QPSQL" ) // --------- POSTGRE
+	{
+		// create sequences
+		if ( !query.exec( "create sequence clientes_cli_id_seq increment 1 minvalue 1 "
+								"maxvalue 9223372036854775807  start 1 cache 1" ) )
+		{
+			error = "Criando sequencia clientes:\n" + query.lastError().text();
+			return false;
+		}
+
+		if ( !query.exec( "create sequence movimento_mov_id_seq increment 1 minvalue 1 "
+								 "maxvalue 9223372036854775807 start 1 cache 1"))
+		{
+			error = "Criando sequencia movimento:\n" + query.lastError().text();
+			return false;
+		}
+
+		if ( !query.exec("create sequence contatos_con_id_seq increment 1 minvalue 1 "
+											"maxvalue 9223372036854775807 start 1 cache 1"))
+		{
+			error = "Criando sequencia contatos:\n" + query.lastError().text();
+			return false;
+		}
+
+		if ( !query.exec( "create sequence cidades_cid_id_seq increment 1 minvalue 1 "
+											"maxvalue 9223372036854775807 start 1 cache 1" ))
+		{
+			error = "Criando sequencia cidades:\n" + query.lastError().text();
+			return false;
+		}
+
+		if ( !query.exec( "create sequence mov_tipo_mt_id_seq increment 1 minvalue 1 "
+											"maxvalue 9223372036854775807 start 1 cache 1" ) )
+		{
+			error = "Criando sequencia mov_tipo:\n" + query.lastError().text();
+			return false;
+		}
+
+		// create tables
+
+		if ( !query.exec("create table \"clientes\" ("
+					"\"cli_id\" integer not null default nextval('clientes_cli_id_seq') unique, "
+					"\"name\" varchar(40) not null, "
+					"\"cidade_id\" integer not null, "
+					"\"contato_id\" integer not null, "
+					"constraint \"pk_clientes\" primary key (\"cli_id\",\"cidade_id\",\"contato_id\") "
+					") with oids" ) )
+		{
+			error = "Criando tabela clientes:\n" + query.lastError().text();
+			return false;
+		}
+
+		if ( !query.exec("create table \"movimento\" ("
+					"\"mov_id\" integer not null default nextval('movimento_mov_id_seq') unique, "
+					"\"cliente_id\" integer not null, "
+					"\"tipo_id\" integer not null, "
+					"\"mov_date\" date not null, "
+					"\"description\" varchar(40) not null, "
+					"constraint \"pk_movimento\" primary key (\"mov_id\",\"cliente_id\",\"tipo_id\") "
+					") with oids" ) )
+		{
+			error = "Criando tabela movimento:\n" + query.lastError().text();
+			return false;
+		}
+
+		if ( !query.exec( "create table \"contatos\" 	("
+					"\"con_id\" integer not null default nextval('contatos_con_id_seq') unique, "
+					"\"name\" varchar(40) not null unique, "
+					"constraint \"pk_contatos\" primary key (\"con_id\") "
+					") with oids" ) )
+		{
+			error = "Criando tabela contatos:\n" + query.lastError().text();
+			return false;
+		}
+
+		if ( !query.exec("create table \"cidades\" ("
+					"\"cid_id\" integer not null default nextval('cidades_cid_id_seq') unique, "
+					"\"name\" varchar(40) not null, "
+					"constraint \"pk_cidades\" primary key (\"cid_id\") "
+					") with oids" ) )
+		{
+			error = "Criando tabela cidades:\n" + query.lastError().text();
+			return false;
+		}
+
+		if ( !query.exec( "create table \"mov_tipo\" ("
+					"\"mt_id\" integer not null default nextval('mov_tipo_mt_id_seq') unique, "
+					"\"name\" varchar(40) not null unique, "
+					"constraint \"pk_mov_tipo\" primary key (\"mt_id\") "
+					") with oids" ))
+		{
+			error = "Criando tabela mov_tipo:\n" + query.lastError().text();
+			return false;
+		}
+
+		// índices e relacionamentos:
+		if (!query.exec( "create index \"ix_relation_cli_mov\" on \"movimento\" (\"cliente_id\")" ))
+		{
+			error = "Criando indice movimento/clientes:\n" + query.lastError().text();
+			return false;
+		}
+		if ( !query.exec( "alter table \"movimento\" add constraint \"relation_cli_mov\" foreign key (\"cliente_id\") references \"clientes\" (\"cli_id\") on update restrict on delete restrict" ) )
+		{
+			error = "Criando relacionamento movimento/clientes:\n" + query.lastError().text();
+			return false;
+		}
+
+		if ( !query.exec( "create index \"ix_relation_con_cli\" on \"clientes\" (\"contato_id\")" ))
+		{
+			error = "Criando indice clientes/contatos:\n" + query.lastError().text();
+			return false;
+		}
+		if ( !query.exec ("alter table \"clientes\" add constraint \"relation_con_cli\" foreign key (\"contato_id\") references \"contatos\" (\"con_id\") on update restrict on delete restrict" ) )
+		{
+			error = "Criando relacionamento clientes/contatos:\n" + query.lastError().text();
+			return false;
+		}
+
+		if ( !query.exec( "create index \"ix_relation_cid_cli\" on \"clientes\" (\"cidade_id\")" ))
+		{
+			error = "Criando indice clientes/cidades:\n" + query.lastError().text();
+			return false;
+		}
+		if ( !query.exec( "alter table \"clientes\" add constraint \"relation_cid_cli\" foreign key (\"cidade_id\") references \"cidades\" (\"cid_id\") on update restrict on delete restrict" ))
+		{
+			error = "Criando relacionamento clientes/cidades:\n" + query.lastError().text();
+			return false;
+		}
+
+		if ( !query.exec( "create index \"ix_relation_movtipo_mov\" on \"movimento\" (\"tipo_id\")" ) )
+		{
+			error = "Criando indice movimento/tipo de movimento:\n" + query.lastError().text();
+			return false;
+		}
+		if ( !query.exec( "alter table \"movimento\" add constraint \"relation_movtipo_mov\" foreign key (\"tipo_id\") references \"mov_tipo\" (\"mt_id\") on update restrict on delete restrict" ) )
+		{
+			error = "Criando relacionamento movimento/tipo de movimento:\n" + query.lastError().text();
+			return false;
+		}
+	}
+
+	// as queries abaixo não dependem do driver:
+
+	// === alimenta a tabela cidades com dados:
+	int cidades = 0;
+	// "exec" return true(1) ou false(0):
+	if ( ! query_exec_( query, "INSERT INTO cidades (name) VALUES ('São Paulo')", cidades, error ) )
+		return false;
+	if ( ! query_exec_( query, "INSERT INTO cidades (name) VALUES ('Porto Alegre')" , cidades, error ) )
+		return false;
+	if ( ! query_exec_( query, "INSERT INTO cidades (name) VALUES ('Campinas')" , cidades, error ) )
+		return false;
+	if ( ! query_exec_( query, "INSERT INTO cidades (name) VALUES ('Rio de Janeiro')" , cidades, error ) )
+		return false;
+	if ( ! query_exec_( query, "INSERT INTO cidades (name) VALUES ('Curitiba')" , cidades, error ) )
+		return false;
+	if ( ! query_exec_( query, "INSERT INTO cidades (name) VALUES ('Salvador')" , cidades, error ) )
+		return false;
+	if ( ! query_exec_( query, "INSERT INTO cidades (name) VALUES ('Belo Horizonte')" , cidades, error ) )
+		return false;
+
+	qDebug() << "Cidades inseridas " << cidades;
+		//  bool query_exec_(QSqlQuery & query, const QString & queryText, int & contador, QString & error );
+
+	// === alimenta a tabela contatos com dados:
+	int contatos = 0;
+	// "exec" return true(1) ou false(0):
+	if ( ! query_exec_( query, "INSERT INTO contatos (name) VALUES ('Julio Juliano')" , contatos, error ) )
+		return false;
+	if ( ! query_exec_( query, "INSERT INTO contatos (name) VALUES ('Alberto Berto')" , contatos, error ) )
+		return false;
+	if ( ! query_exec_( query, "INSERT INTO contatos (name) VALUES ('Maria Mariana')" , contatos, error ) )
+		return false;
+
+	qDebug() << "Contatos inseridos " << contatos;
+
+	// === alimenta a tabela tipo de movimento com dados:
+	int mov_tipos = 0;
+	// "exec" return true(1) ou false(0):
+	if ( ! query_exec_( query, "INSERT INTO mov_tipo (name) VALUES ('Consultoria')" , mov_tipos, error ) )
+		return false;
+	if ( ! query_exec_( query, "INSERT INTO mov_tipo (name) VALUES ('Treinamento')" , mov_tipos, error ) )
+		return false;
+	if ( ! query_exec_( query, "INSERT INTO mov_tipo (name) VALUES ('Desenvolvimento')" , mov_tipos, error ) )
+		return false;
+	if ( ! query_exec_( query, "INSERT INTO mov_tipo (name) VALUES ('Apoio a Desenvolvimento')" , mov_tipos, error ) )
+		return false;
+
+	qDebug() << "Tipos de movimento inseridos " << mov_tipos;
+
+
+	// ==== *** alimenta a tabela de clientes com "PREPARE"  no estilo ORACLE:
+
+	// Preenche uma lista de nomes de clientes,
+	// para depois mostrar o exemplo de "Query Preparada":
+	QStringList names;
+	names	<< "Parafusos, Porcas e Pregos LTDA"
+			<< "Organizações Tabajara"
+			<< "Pai & Filhos Corporation"
+			<< "Serviços Aleatórios Inc"
+			<< "Porta de Cadeia Advocacia"
+			<< "Fazemos Qualquer Negócio SA"
+			<< "Financeira Metralha Brothers"
+			<< "Lucro Incerto SA";
+
+	// simplesmente inicia preparando a query, sem executá-la ainda
+	// o texto da query, para "VALUES", usa PARAMETROS NOMEADOS, no estilo ORACLE
+	if ( !query.prepare("INSERT INTO clientes (name, cidade_id, contato_id) "
+					  "VALUES (:name, :cidade_id, :contato_id)" ) )
+	{
+		error = "Falha ao preparar a query inserir em clientes:\n" + query.lastError().text();
+		return false;
+	}
+
+	int clientes =0;
+	std::srand(std::time(NULL));
+	// agora irá executar a query, apenas passando os parametros necessários
+	// para preencher o campo correspondente ao parametro:
+	foreach (const QString & name, names) // percorre a lista de nomes preenchida acima
+	{
+		// relaciona cada parâmetro aos valores desejados:
+		query.bindValue(":name", name);
+		query.bindValue(":cidade_id", 1 + (std::rand() % cidades)); // define uma cidade aleatoriamente
+		query.bindValue(":contato_id", 1 + (std::rand() % contatos)); // define um contato aleatoriamente
+
+		if ( ! query.exec( ) ) // executa a query sem texto (já foi preparado)
+		{
+			error = "Falha ao inserir clientes:\n" + query.lastError().text();
+			return false;
+		}
+		++clientes;
+	}
+
+	qDebug() << "Clientes inseridos " << clientes ;
+
+
+	// ==== *** alimenta a tabela de movimentos usando PREPARE no estilo ODBC:
+
+	// Esse é um estilo pobre (comparado com ORACLE) pois
+	// os parametros são marcados com "?" sequencialmente
+	// e sua alimentação terá que seguir a ordem sequencial correta
+	// para preencher corretamente cada campo:
+
+	// simplesmente inicia preparando a query, sem executá-la ainda
+	// o texto da query, para "VALUES", usa PARAMETROS SEQUENCIAIS
+	// marcados com "?", no estilo ODBC:
+
+	if ( !query.prepare("INSERT INTO movimento (cliente_id, tipo_id, mov_date, description) "
+					  "VALUES (?,?,?,?)" ) )
+	{
+		error = "Falha ao preparar a query inserir em movimento:\n" + query.lastError().text();
+		return false;
+	}
+
+	const int cliente_sem_movimento = clientes/2; // um cliente não terá movimento
+
+	int movimentos;
+	int movimentos_not=0;
+	const int totalMovimentos = 600;
+
+	for ( movimentos = 0; movimentos <totalMovimentos; ++movimentos )
+	{
+		// ADICIONA cada parâmetro PELA ORDEM das "?" aos valores desejados.
+		// Para isso, AO INVÉS de "bindValue" usa "addBindValue":
+
+		int cliente_id = 1+(movimentos % clientes); // define um cliente aleatoriamente
+
+		if ( cliente_id == cliente_sem_movimento) // deixa pelo menos um cliente sem movimento...
+			++movimentos_not;
+		else
+		{
+			query.addBindValue(cliente_id); // id do cliente
+			query.addBindValue(1 + (std::rand() % mov_tipos)); // define um tipo de movimento aleatoriamente
+			// define aleatoriamente a data do ultimo movimento (data de hoje menos uma quantidade qualquer de dias):
+			query.addBindValue( QDate::currentDate().addDays( -(std::rand() % 365)));
+			// coluna "description":
+			query.addBindValue( QString("Movimento #%1").arg(movimentos));
+
+			if ( !query.exec() )
+			{
+				error = "Falha ao inserir movimento:\n" + query.lastError().text();
+				return false;
+			}
+		}
+	}
+
+	qDebug() << "Movimentos inseridos " << movimentos - movimentos_not ;
+
+	qDebug() << "Tempo decorrido: " << time.elapsed();
+	return true;
+}
+/* SQLITE
+// sem transaction
+Tempo decorrido: 2093 ms
+
+// com transaction
+Tempo decorrido:  15 ms
+*/
+ bool query_exec_(QSqlQuery & query, const QString & queryText, int & contador, QString & error )
+{
+	if ( query.exec(queryText) )
+	{
+		  ++contador;
+		  return true;
+	}
+	else
+	{
+		  error = query.lastError().text();
+		  return false;
+	}
+}
+

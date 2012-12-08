@@ -1,0 +1,51 @@
+AULA 3
+
+- fazendo com que um slot não emita sinais recursivamente.
+
+- threads:
+	- o modelo round-robin de agendamento de threads;
+	- como Qt invoca os diversos SOs para esse agendamento;
+	- a função QThread::start onde um thread pede o agendamento 
+	  de um outro;
+	- mas, do ponto de vista do nosso código o thread só começa
+	  na virtual "run" que é chamada pela função start-point
+	  do thread que Qt já tem pronta.
+	- ATENÇÃO: membros de dados de QThread e da sua derivada de 
+	  Thread pertencem ao THREAD CRIADOR e NÃO ao novo thread.
+	  O Novo thread É a função "run" e funções que ela chame
+	  e que rodarão nesse thread. Todos os objetos criados AÍ
+	  pertencem a esse novo thread.
+
+	- prioridades de threads
+	- situações de sincronização;
+		a) impedindo o acesso a recursos compartilhados
+		   (memória global ou do heap, arquivos, etc)
+		   - QMutex e QMutexLocker
+		   - separando situações de escrita de situações
+		     de leitura com QReadWriteLock, QReadLocker
+		     e QWriteLocker
+		   - nunca usar um mesmo objeto de sincronização
+			para situações diferentes. Exemplo
+		        variáveis globais "a" e "b" deveriam
+			ser protegidas por 
+			QMutex mutex_a e QMutex mutex_b
+		   - e sempre que possível usar QReaWriteLock
+		     ao invés de QMutex, exceto se todos os threads
+		     só estiverem escrevendo.
+		
+		b) situações em que um thread espera por outro:
+			semáforos ou wait conditions.
+	
+	- no final da aplicação sempre garantir que todos os threads
+	  tenham encerrado normalmente.	
+
+	- a comunicação entre diferentes threads deve ser sempre feita
+	  por signals/slots ou por postagem de Eventos (QEvent).
+
+- em processamentos prolongados se colocarmos o processamento
+	no mesmo thread de Interface, temos que chamar
+	QApplication::processEvents() para que a interface não congele
+	O que torna o processamento lento.
+	Melhor colocar o processamento na função "run" de um novo
+	thread (UM "WorkerThread"), que poderá enviar sinais
+	dando conta do seu progresso. 
