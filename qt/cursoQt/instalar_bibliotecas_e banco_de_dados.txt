@@ -1,0 +1,82 @@
+BIBLIOTECAS
+
+1) Incluir todas as .dll (ou .so) de Qt no ambiente de produção
+     são todas aquelas que estiverem no seu arquivo .pro
+     Exemplo: QT += core gui network sql
+     então, teremos QtCore4.dll QtGui4.dll QtNetwork4.dll QtSql4.dll
+
+	Elas estão no diretório
+	QtSDK/desktop/qt/4.7.4/MSVC2008/bin
+	QtSDK/desktop/qt/4.7.4/mingw/bin
+	QtSDK/desktop/qt/4.8.1/MSVC2008/bin
+	QtSDK/desktop/qt/4.8.1/mingw/bin
+     // no linux não há as pastas intermediárias "MSVCxxxx" ou "mingw"
+	ATENÇÃO: apenas as versões RELEASE das bibliotecas
+	NO WINDOWS, se estiver usando o compilador GCC (mingw)
+	precisa também distribuir as seguintes:
+	mingwm10.dll e libgcc_s_dw2-1.dll
+
+2) Usando banco de dados:
+	o driver de qt para esse banco de dados
+
+Diretório: 
+E:\QtSDK\Desktop\Qt\4.7.4\mingw\plugins\sqldrivers
+E:\QtSDK\Desktop\Qt\4.7.4\MSVC2008\plugins\sqldrivers
+
+PEgar a DLL relativa ao(s) banco(s) que serão usados
+
+Se a DLL desejada não estiver lá, COMPILAR a mesma EM:
+E:\QtSDK\QtSources\4.7.4\src\plugins\sqldrivers
+Abaixo desse diretórios teremos um subdiretório
+para cada banco.
+
+ENTRAR NO DIRETÓRIO DO BANCO (EXEMPLO COM MYSQL):
+cd mysql
+(ou cd oci, ou cd psql)
+
+del C:\QtSDK\Desktop\Qt\4.7.4\mingw\plugins\sqldrivers\*qsqlmysql* /Q
+del C:\QtSDK\QtCreator\bin\sqldrivers\*qsqlmysql* /Q
+
+del make*   /Q
+rd debug /s /Q
+rd release /s /Q
+del *.bak    /Q
+
+
+// indicar o diretório de include e o de libs nativas desse banco:
+// no exemplo, são os diretórios 
+C:/qt_create_dbdrv/mysql/include
+C:/qt_create_dbdrv/mysql/lib
+
+qmake "INCLUDEPATH+=C:/qt_create_dbdrv/mysql/include" "LIBS+=C:/qt_create_dbdrv/mysql/lib/opt/libmysql.lib" mysql.pro
+make debug
+make release
+// ou "nmake" se estiver usando compilador microsoft
+
+copy .\debug\*.a C:\QtSDK\Desktop\Qt\4.7.4\mingw\plugins\sqldrivers
+copy .\debug\*.lib C:\QtSDK\Desktop\Qt\4.7.4\mingw\plugins\sqldrivers
+copy .\debug\*.dll C:\QtSDK\Desktop\Qt\4.7.4\mingw\plugins\sqldrivers
+copy .\release\*.a C:\QtSDK\Desktop\Qt\4.7.4\mingw\plugins\sqldrivers
+copy .\release\*.lib C:\QtSDK\Desktop\Qt\4.7.4\mingw\plugins\sqldrivers
+copy .\release\*.dll C:\QtSDK\Desktop\Qt\4.7.4\mingw\plugins\sqldrivers
+copy .\release\*.dll C:\QtSDK\QtCreator\bin\sqldrivers
+
+3) acrescentar a biblioteca nativa do BANCO:
+copy c:\qt_create_dbdrv\mysql\bin\*.dll c:\windows\system32
+
+
+Essas bibliotecas devem ir para quais diretórios?
+No WINDOWS, é seguida a seguinte ordem para busca de DLLS:
+
+1) diretório do executável
+2) diretório de trabalho (por default, o mesmo do executável)
+3) diretório Windows
+4) diretório Windows/system32
+5) qualquer diretório listado na variável de ambiente PATH
+
+NO Linux/UNIX:
+
+1) /usr/lib 
+2) qualquer diretório listado na variável de ambiente LD_LIBRARY_PATH
+	(use o utilitário ldconfig para acrescentar diretórios)
+

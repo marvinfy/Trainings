@@ -89,10 +89,14 @@ Widget::Widget(QSqlDatabase & db, QWidget *parent)
 	m_colInd.movDescription = m_movimentoModel->fieldIndex("description");
 
 	// cabeçalhos para movimento:
-	m_movimentoModel->setHeaderData(m_colInd.movClienteId, Qt::Horizontal, "Cliente");
-	m_movimentoModel->setHeaderData(m_colInd.movTipoId, Qt::Horizontal, "Tipo");
-	m_movimentoModel->setHeaderData( m_colInd.movDate, Qt::Horizontal, "Data");
-	m_movimentoModel->setHeaderData( m_colInd.movDescription, Qt::Horizontal, "Descrição");
+	m_movimentoModel->setHeaderData(m_colInd.movClienteId,
+																Qt::Horizontal, "Cliente");
+	m_movimentoModel->setHeaderData(m_colInd.movTipoId,
+																Qt::Horizontal, "Tipo");
+	m_movimentoModel->setHeaderData( m_colInd.movDate,
+																Qt::Horizontal, "Data");
+	m_movimentoModel->setHeaderData( m_colInd.movDescription,
+																Qt::Horizontal, "Descrição");
 
 	// *** relacionamentos para 2 colunas de movimentos ("clientes" e "tipo de movimento"):
 	m_movimentoModel->setRelation(m_colInd.movClienteId,
@@ -350,10 +354,12 @@ void Widget::on_clienteDeleteBtn_clicked()
 		if ( m_clientesModel->removeRow(index.row()) )
 		{			// sucesso: o model deve atualizar a base de dados (submit):
 			if ( !m_clientesModel->submitAll() )
-				errMsg = "Falha ao enviar exclusão do cliente selecionado para o banco de dados:\n" + m_clientesModel->lastError().text();
+				errMsg = "Falha ao enviar exclusão do cliente selecionado para o banco de dados:\n"
+														+ m_clientesModel->lastError().text();
 		}
 		else
-			errMsg = "Falha ao excluir o cliente selecionado:\n" + m_clientesModel->lastError().text();
+			errMsg = "Falha ao excluir o cliente selecionado:\n"
+																			+ m_clientesModel->lastError().text();
 	}
 	else // falharia com "submit"
 	{
@@ -365,7 +371,8 @@ void Widget::on_clienteDeleteBtn_clicked()
 			m_clientesModel->select();
 		}
 		else
-			errMsg = "Falha ao enviar exclusão do cliente selecionado para o banco de dados diretamente:\n" + query.lastError().text();
+			errMsg = "Falha ao enviar exclusão do cliente selecionado para o banco de dados diretamente:\n"
+																		+ query.lastError().text();
 	}
 	if (! errMsg.isEmpty())
 	{

@@ -1,0 +1,50 @@
+AULA 7
+
+- Banco de dados:
+
+- projeto 10_database.
+
+- drivers de acesso nativo + driver ODBC para outros bancos não
+	portáveis, mono-plataforma (como SQlServer)
+
+- classe QSqlDatabase: abrir a conexão indicando o driver desejado.
+	-podem ser aberta múltiplas conexões a diferentes bancos,
+	nesse caso, além de indicar o driver de cada um,
+	atribuir um nome-identificador para a conexão.
+
+
+- classe QSQlQuery - permite executar qualquer query SQL
+	suporte para queries preparadas (estilos Oracle e ODBC)
+
+- suporte a transactions
+
+- Acessando o banco via QSqlTableModel (exercício 10_database).
+	- utilizando uma QTableView para visualizar/editar os dados.
+	- conectando o signal "dataChanged" do model a um slot
+	  para validação dos dados alterados.
+	- função "revert" permite não aceitar as alterações.
+
+
+- estabelecendo filtros e mudando a ordem de classificação
+
+
+- projeto 11_db_relation
+
+	- usando QSqlRelationalTableModel
+	- estabelecendo relacionamentos (um por coluna necessária)
+	  com outras tabelas (busca "id" e traz o valor associado)
+	  função "setRelation
+
+- editando dados; insert, update, delete
+	- usando métodos de alto nível : "submit"
+	- usando métodos de mais baixo nível: QSqlQuery
+
+- conectando o signal "tableView->selectionModel currentRowChanged"
+	para saber quando um novo cliente foi selecionado
+	e mudar o filtro para a tabela de movimentos
+
+- impedindo a edição direta na tabela de movimentos ("NoEditTriggers")
+- No diálogo de edição de movimentos usando um QDataWidgetMapper
+	para mapear qualquer widget (que não tem suporte a um model)
+	para o model em uso, com isso automatizando o preenchimento
+	dos widgets sem ter que fazer isso manualmente.
